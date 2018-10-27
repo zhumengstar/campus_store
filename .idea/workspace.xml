@@ -7,13 +7,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="94dcf00f-17a8-4a09-a8c3-a25f39a6fdb1" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campus/entity/HeadLine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campus/entity/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campus/entity/ProductCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campus/entity/ProductImg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campus/entity/Shop.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/campus/entity/ShopCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campus/entity/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com.dharma.java/entity/Area.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campus/entity/HeadLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com.dharma.java/entity/HeadLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campus/entity/LocalAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com.dharma.java/entity/LocalAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campus/entity/PersonInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com.dharma.java/entity/PersonInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campus/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com.dharma.java/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campus/entity/ProductCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com.dharma.java/entity/ProductCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campus/entity/ProductImg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com.dharma.java/entity/ProductImg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campus/entity/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com.dharma.java/entity/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campus/entity/ShopCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com.dharma.java/entity/ShopCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/campus/entity/WechatAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/com.dharma.java/entity/WechatAuth.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,7 +64,7 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/Area.java">
+        <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/Area.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
               <caret line="22" selection-start-line="22" selection-end-line="22" />
@@ -92,7 +95,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/PersonInfo.java">
+        <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/PersonInfo.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="14" selection-start-line="14" selection-end-line="14" />
@@ -139,7 +142,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/WechatAuth.java">
+        <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/WechatAuth.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -166,7 +169,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/ShopCategory.java">
+        <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/ShopCategory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
               <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
@@ -208,7 +211,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/ProductCategory.java">
+        <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/ProductCategory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
               <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
@@ -238,7 +241,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/ProductImg.java">
+        <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/ProductImg.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
               <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
@@ -273,7 +276,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/Product.java">
+        <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/Product.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
@@ -337,7 +340,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/Shop.java">
+        <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/Shop.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="540">
               <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
@@ -403,7 +406,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/LocalAuth.java">
+        <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/LocalAuth.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
@@ -463,6 +466,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/campus/entity/ProductCategory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/campus/entity/ProductImg.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/campus/entity/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/entity/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/java/web/entity/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/com.dharma.java/entity/Product.java" />
       </list>
     </option>
   </component>
@@ -533,14 +539,14 @@
               <item name="campus" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com.dharma.java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="campus" type="b2602c69:ProjectViewProjectNode" />
               <item name="campus" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com.dharma.java" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -561,7 +567,9 @@
               <item name="campus" type="b2602c69:ProjectViewProjectNode" />
               <item name="campus" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="campus" type="b2602c69:ProjectViewProjectNode" />
@@ -576,7 +584,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540654260446" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540656066368" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
@@ -699,12 +707,12 @@
       <updated>1540643705357</updated>
       <workItem from="1540643706637" duration="402000" />
       <workItem from="1540644440575" duration="52000" />
-      <workItem from="1540644507466" duration="5009000" />
+      <workItem from="1540644507466" duration="5361000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5463000" />
+    <option name="totallyTimeSpent" value="5815000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -759,7 +767,7 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/HeadLine.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/HeadLine.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
@@ -800,7 +808,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/LocalAuth.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/LocalAuth.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
@@ -832,7 +840,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/PersonInfo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/PersonInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
@@ -877,7 +885,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/WechatAuth.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/WechatAuth.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
@@ -902,7 +910,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/Shop.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/Shop.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="36" column="29" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
@@ -966,7 +974,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/Area.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/Area.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" selection-start-line="22" selection-end-line="22" />
@@ -995,7 +1003,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/ShopCategory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/ShopCategory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
@@ -1035,7 +1043,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/ProductCategory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/ProductCategory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
@@ -1063,7 +1071,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/ProductImg.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/ProductImg.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
@@ -1099,7 +1107,7 @@
     <entry file="file://$PROJECT_DIR$/src/test.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/campus/entity/Product.java">
+    <entry file="file://$PROJECT_DIR$/src/main/com.dharma.java/entity/Product.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
