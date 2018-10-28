@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!-- 引入外部资源文件 -->
-    <!--<properties resource="jdbc.properties"/>-->
+    <properties resource="jdbc.properties"/>
 
     <!-- 设置驼峰匹配 -->
     <settings>

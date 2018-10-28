@@ -21,5 +21,13 @@
 
     <!-- 配置基于注解的声明式事务 -->
     <tx:annotation-driven transaction-manager="transactionManager" />
+
+    <!--&lt;!&ndash; 4.配置扫描Dao接口包，动态实现Dao接口，注入到soring容器中 &ndash;&gt;-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--&lt;!&ndash; 注入sqlSessionFactory &ndash;&gt;-->
+        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />-->
+        <!--&lt;!&ndash; 给出需要扫描Dao接口包 &ndash;&gt;-->
+        <!--<property name="basePackage" value="com.java.service" />-->
+    <!--</bean>-->
 </beans>
 

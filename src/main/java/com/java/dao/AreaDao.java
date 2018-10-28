@@ -1,6 +1,7 @@
 package com.java.dao;
 
 import com.java.entity.Area;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -14,4 +15,5 @@ public interface AreaDao {
      * @return areaList
      */
     List<Area> queryArea();
+
 }
