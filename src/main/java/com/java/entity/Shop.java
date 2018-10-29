@@ -5,6 +5,8 @@ import java.util.Date;
 public class Shop {
     private Long shopId;
 
+    private Long ownerId;
+
     private String shopName;
 
     private String shopDesc;
@@ -33,6 +35,15 @@ public class Shop {
     private PersonInfo owner;
 
     private ShopCategory shopCategory;
+
+
+    public Long getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
+    }
 
     public Long getShopId() {
         return shopId;
