@@ -2,7 +2,6 @@ package com.java.service;
 
 import com.java.dto.ShopExecution;
 import com.java.entity.Shop;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.io.File;
 
@@ -11,5 +10,5 @@ import java.io.File;
  * @desc:
  **/
 public interface ShopService {
-    ShopExecution addShop(Shop shop, CommonsMultipartFile shopImg);
+    ShopExecution addShop(Shop shop, File shopImg);
 }

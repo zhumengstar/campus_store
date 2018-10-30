@@ -1,8 +1,8 @@
 package com.java.util;
 
+import com.java.enums.ShopStateEnum;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.imageio.ImageIO;
 import java.io.File;
@@ -19,6 +19,7 @@ public class ImageUtils {
 
     private static String basePath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
 
+
     private static final SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
 
     private static final Random r = new Random();
@@ -29,7 +30,7 @@ public class ImageUtils {
      * @param targetAddr
      * @return
      */
-    public static String gengerateThumbnail(CommonsMultipartFile thumbnail, String targetAddr) {
+    public static String gengerateThumbnail(File thumbnail, String targetAddr) {
         String realFileName = getRandomFileName();
         String extension = getFileExtension(thumbnail);
         makeDirPath(targetAddr);
@@ -37,7 +38,7 @@ public class ImageUtils {
 
         File dest = new File(PathUtil.getImgBasePath() + relativeAddr);
         try {
-            Thumbnails.of(thumbnail.getInputStream()).size(200, 200).watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25f)
+            Thumbnails.of(thumbnail).size(200, 200).watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/IM62.jpg")), 0.25f)
                     .outputQuality(0.8f).toFile(dest);
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,7 +56,10 @@ public class ImageUtils {
         String realFileParentPath = PathUtil.getImgBasePath() + targetAddr;
         File dirPath = new File(realFileParentPath);
         if (!dirPath.exists()) {
-            dirPath.mkdirs();
+            Boolean a = dirPath.mkdirs();
+            Boolean s=a;
+        } else{
+            ShopStateEnum.INNER_ERROR.getState();
         }
     }
 
@@ -65,10 +69,13 @@ public class ImageUtils {
      * @param cFile
      * @return
      */
-    private static String getFileExtension(CommonsMultipartFile cFile) {
-        String originalFileName = cFile.getOriginalFilename();
+    private static String getFileExtension(File cFile) {
+//        String originalFileName = cFile.getOriginalFilename();
+//        return originalFileName.substring(originalFileName.lastIndexOf("."));
+        String originalFileName = cFile.getName();
         return originalFileName.substring(originalFileName.lastIndexOf("."));
     }
+
 
     /**
      * 生成随机文件名，当前年月日小时分钟秒钟+五位随机数
