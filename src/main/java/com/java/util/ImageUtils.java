@@ -82,7 +82,7 @@ public class ImageUtils {
      *
      * @return
      */
-    private static String getRandomFileName() {
+    public static String getRandomFileName() {
         //获取随机五位随机数
         int rannum = r.nextInt(89999) + 10000;
         String nowTImeStr = sDateFormat.format(new Date());
