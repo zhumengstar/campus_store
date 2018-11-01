@@ -6,23 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93f7af84-2ba5-4977-926b-0b4795c49229" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/java/dao/ShopCategoryDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/java/util/HttpServletRequestUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/java/web/shopadmin/ShopAdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/java/web/shopadmin/ShopManagementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/ShopCategoryMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/html/shop/shopoperation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/shop/shopoperation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/com/java/dao/ShopCategoryDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/java/util/ImageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/java/util/ImageUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/java/util/ImageUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/java/util/ImageUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/com.java.campus.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.java.campus.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/com.java.campus/WEB-INF/classes/com/java/entity/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.java.campus/WEB-INF/classes/com/java/entity/Shop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/com.java.campus/WEB-INF/classes/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/com.java.campus/WEB-INF/classes/logback.xml" afterDir="false" />
-    </list>
+    <list default="true" id="93f7af84-2ba5-4977-926b-0b4795c49229" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +18,7 @@
     <session id="-1275464614">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.6" value="1" />
@@ -91,10 +75,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/java/util/ImageUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
+            <state relative-caret-position="1260">
               <caret line="84" column="10" selection-start-line="84" selection-start-column="10" selection-end-line="84" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -155,7 +139,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/com/java/dao/ShopCategoryDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="207">
@@ -287,10 +271,8 @@
     <option name="vmOptions" value="-Dmaven.multiModuleProjectDirectory=$M2_HOME" />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="127" />
-    <option name="y" value="80" />
-    <option name="width" value="1129" />
-    <option name="height" value="683" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -583,7 +565,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540999039228" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541001326310" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -813,14 +795,11 @@
       <workItem from="1540809834587" duration="9528000" />
       <workItem from="1540903233450" duration="1060000" />
       <workItem from="1540904315067" duration="7304000" />
-      <workItem from="1540987271282" duration="9431000" />
+      <workItem from="1540987271282" duration="9855000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ShopCategoryDaoTest_testQueryShopCategory - 2018.10.31 at 22h 30m 33s.xml">
-      <configuration name="ShopCategoryDaoTest.testQueryShopCategory" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ShopCategoryDaoTest_testQueryShopCategory - 2018.10.31 at 22h 31m 56s.xml">
       <configuration name="ShopCategoryDaoTest.testQueryShopCategory" configurationId="JUnit" />
     </history-entry>
@@ -848,9 +827,12 @@
     <history-entry file="ShopCategoryDaoTest_testQueryShopCategory - 2018.10.31 at 22h 40m 12s.xml">
       <configuration name="ShopCategoryDaoTest.testQueryShopCategory" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ShopCategoryDaoTest_testQueryShopCategory - 2018.10.31 at 23h 17m 22s.xml">
+      <configuration name="ShopCategoryDaoTest.testQueryShopCategory" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39410000" />
+    <option name="totallyTimeSpent" value="39834000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -865,7 +847,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.14578313" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.386747" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.386747" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.38915664" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1193,16 +1175,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/util/ImageUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="84" column="10" selection-start-line="84" selection-start-column="10" selection-end-line="84" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/java/web/shopadmin/ShopManagementController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-584">
@@ -1263,6 +1235,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="30" column="42" selection-start-line="30" selection-start-column="42" selection-end-line="30" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/util/ImageUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="84" column="10" selection-start-line="84" selection-start-column="10" selection-end-line="84" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
