@@ -8,10 +8,14 @@ import com.java.entity.PersonInfo;
 import com.java.entity.Shop;
 import com.java.entity.ShopCategory;
 import com.java.enums.ShopStateEnum;
+import com.java.exceptions.ShopOperationExecption;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -28,7 +32,7 @@ public class ShopServiceTest extends BaseTest {
     private ShopDao shopDao;
 
     @Test
-    public void testAddShop() {
+    public void testAddShop() throws ShopOperationExecption, FileNotFoundException {
         Shop shop = new Shop();
         PersonInfo owner = new PersonInfo();
         Area area = new Area();
@@ -54,13 +58,15 @@ public class ShopServiceTest extends BaseTest {
         shop.setLastEditTime(new Date());
         shop.setEnableStatus(ShopStateEnum.CHECK.getState());
         shop.setAdvice("审核中。。。");
-        File shopImg= new File("/Users/zgh/Desktop/IMG_0277.jpg");
+        File shopImg = new File("/Users/zgh/Desktop/IMG_0277.jpg");
         shop.setShopImg(shopImg.getPath());
 
 
-        ShopExecution se=shopService.addShop(shop,shopImg);
+        InputStream is = null;
+        is = new FileInputStream(shopImg);
+        ShopExecution se = shopService.addShop(shop, is, shopImg.getName());
 
-        assertEquals(ShopStateEnum.CHECK.getState(),se.getState());
+        assertEquals(ShopStateEnum.CHECK.getState(), se.getState());
 //        int effectedNum = shopDao.insertShop(shop);
 //        assertEquals(1, effectedNum);
 

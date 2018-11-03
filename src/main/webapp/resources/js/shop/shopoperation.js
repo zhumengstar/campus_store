@@ -2,9 +2,9 @@
  *
  */
 $(function () {
-    var initUrl = "/shop/getshopinitinfo";
+    var initUrl = "/shopadmin/getshopinitinfo";
     var registerShopUrl = "/shopadmin/registershop";
-    alert(initUrl);
+    // alert("hsuadhasiudhaiusd");
     getShopInitInfo();
 
 
@@ -18,17 +18,18 @@ $(function () {
 
                 });
                 data.areaList.map(function (item, index) {
-                    tempAreaHtml += '<option data-id>"' + item.areaId + '">' + item.areaName + '</option>';
+                    tempAreaHtml += '<option data-id="' + item.areaId + '">' + item.areaName + '</option>';
                 });
                 $('#shop-category').html(tempHtml);
                 $('#area').html(tempAreaHtml);
             }
 
         });
+
         $('#submit').click(function () {
             var shop = {};
             shop.shopName = $('#shop-name').val();
-            shop.shopAddr = $('#shop-add').val();
+            shop.shopAddr = $('#shop-addr').val();
             shop.phone = $('#shop-phone').val();
             shop.shopDesc = $('#shop-desc').val();
             shop.shopCategory = {
@@ -42,12 +43,28 @@ $(function () {
                 }).data('id')
             };
             var shopImg = $('#shop-img')[0].files[0];
+
             var formData = new FormData();
+
             formData.append('shopImg', shopImg);
+
             formData.append('shopStr', JSON.stringify(shop));
+
+            var verifyCodeActual = $('#j_captcha').val();
+            if (!verifyCodeActual) {
+                $.toast('请输入验证码！');
+                return;
+            }
+
+            formData.append('verifyCodeActual', verifyCodeActual);
+
+
+            alert(formData.get('shopImg'));
+            alert(formData.get('shopStr'));
+            alert(formData.get('verifyCodeActual'));
             $.ajax({
                 url: registerShopUrl,
-                type: 'Post',
+                type: 'POST',
                 data: formData,
                 contentType: false,
                 processData: false,
@@ -57,8 +74,9 @@ $(function () {
                         $.toast('提交成功。。。');
 
                     } else {
-                        $.toast('提交失败。。。' + data.errMsg);
+                        $.toast('提交失败。。。' + data.toString());
                     }
+                    $('#captcha_img').click();
 
                 }
             });
