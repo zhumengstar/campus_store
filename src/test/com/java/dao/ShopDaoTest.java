@@ -1,16 +1,18 @@
-package com.java.dao;
+package dao;
 
-import com.java.BaseTest;
+import baseTest.BaseTest;
+import com.java.dao.ShopDao;
 import com.java.entity.Area;
 import com.java.entity.PersonInfo;
 import com.java.entity.Shop;
 import com.java.entity.ShopCategory;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ShopDaoTest extends BaseTest {
 
@@ -18,6 +20,7 @@ public class ShopDaoTest extends BaseTest {
     private ShopDao shopDao;
 
     @Test
+    @Transactional
     public void insertShop() {
         Shop shop = new Shop();
         PersonInfo owner = new PersonInfo();
@@ -55,6 +58,7 @@ public class ShopDaoTest extends BaseTest {
     }
 
     @Test
+    @Transactional
     public void testUpdateShop() {
         Shop shop = new Shop();
         shop.setShopId(2L);

@@ -1,4 +1,4 @@
-package com.java.web;
+package com.java.web.superadmin;
 
 import com.java.entity.Area;
 import com.java.service.AreaService;
@@ -26,7 +26,7 @@ import org.slf4j.LoggerFactory;
 public class AreaController {
 
 
-    Logger logger=LoggerFactory.getLogger(AreaController.class);
+    Logger logger = LoggerFactory.getLogger(AreaController.class);
 
     @Autowired
     private AreaService areaService;
@@ -35,7 +35,7 @@ public class AreaController {
     @ResponseBody
     private Map<String, Object> listArea() {
         logger.info("====start====");
-        long startTime=System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         Map<String, Object> modelMap = new HashMap<String, Object>();
         List<Area> list = new ArrayList<Area>();
         try {
@@ -47,10 +47,8 @@ public class AreaController {
             modelMap.put("success", false);
             modelMap.put("errMsg", e.toString());
         }
-        logger.error("test error!");
-
-        long endTime=System.currentTimeMillis();
-        logger.debug("costTime:[{}ms]",endTime-startTime);
+        long endTime = System.currentTimeMillis();
+        logger.debug("costTime:[{}ms]", endTime - startTime);
         logger.info("====end====");
         return modelMap;
     }

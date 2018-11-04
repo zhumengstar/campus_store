@@ -1,15 +1,17 @@
-package com.java;
+package baseTest;
 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 /**
  * @author:zhumeng
  * @desc:
  **/
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:spring/spring-dao.xml", "classpath:spring/spring-service.xml","classpath:spring/spring-web.xml"})
+@WebAppConfiguration("src/main/resources")
+@ContextConfiguration({"classpath*:spring/spring-dao.xml", "classpath*:spring/spring-service.xml","classpath*:spring/spring-web.xml"})
 public class BaseTest {
 
 }

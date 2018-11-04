@@ -80,6 +80,9 @@ public class ShopManagementController {
     private Map<String, Object> registerShop(HttpServletRequest request) {
         //1.接受并转化相应参数，包括店铺信息以及图片信息
 
+        logger.info("shopStr.....",request.getParameter("shopStr"));
+        logger.info("verifyCodeActual.....",request.getParameter("verifyCodeActual"));
+
 
         Map<String, Object> modelMap = new HashMap<String, Object>();
 
@@ -111,7 +114,7 @@ public class ShopManagementController {
             shop = mapper.readValue(shopStr, Shop.class);
         } catch (Exception e) {
             modelMap.put("success", false);
-            modelMap.put("errMsg", e.getMessage());
+            modelMap.put("errMsg", "pojo转换错误。。。");
             return modelMap;
         }
 

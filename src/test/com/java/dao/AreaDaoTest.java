@@ -1,6 +1,7 @@
-package com.java.dao;
+package dao;
 
-import com.java.BaseTest;
+import baseTest.BaseTest;
+import com.java.dao.AreaDao;
 import com.java.entity.Area;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class AreaDaoTest extends BaseTest {
     @Test
     public void testQueryArea() {
         List<Area> areaList = areaDao.queryArea();
+
         assertEquals(2, areaList.size());
     }
 }

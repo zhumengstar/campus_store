@@ -1,7 +1,7 @@
-package com.java.dao;
+package dao;
 
-import com.java.BaseTest;
-import com.java.entity.Area;
+import baseTest.BaseTest;
+import com.java.dao.ShopCategoryDao;
 import com.java.entity.ShopCategory;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class ShopCategoryDaoTest extends BaseTest {
     public void testQueryShopCategory() {
 
         List<ShopCategory> shopCategoryList = shopCategoryDao.queryShopCategory(new ShopCategory());
-        System.out.println(shopCategoryList+".......");
+        System.out.println(shopCategoryList + ".......");
 
         assertEquals(2, shopCategoryList.size());
 
@@ -33,7 +33,7 @@ public class ShopCategoryDaoTest extends BaseTest {
 
         shopCategoryList = shopCategoryDao.queryShopCategory(testCategory);
 
-        System.out.println(shopCategoryList+".......");
+        System.out.println(shopCategoryList + ".......");
 //        assertEquals(1,shopCategoryList.size());
 
 

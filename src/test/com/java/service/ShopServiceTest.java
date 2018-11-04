@@ -1,6 +1,6 @@
-package com.java.service;
+package service;
 
-import com.java.BaseTest;
+import baseTest.BaseTest;
 import com.java.dao.ShopDao;
 import com.java.dto.ShopExecution;
 import com.java.entity.Area;
@@ -9,6 +9,7 @@ import com.java.entity.Shop;
 import com.java.entity.ShopCategory;
 import com.java.enums.ShopStateEnum;
 import com.java.exceptions.ShopOperationExecption;
+import com.java.service.ShopService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -58,7 +59,7 @@ public class ShopServiceTest extends BaseTest {
         shop.setLastEditTime(new Date());
         shop.setEnableStatus(ShopStateEnum.CHECK.getState());
         shop.setAdvice("审核中。。。");
-        File shopImg = new File("/Users/zgh/Desktop/IMG_0277.jpg");
+        File shopImg = new File("/Users/zgh/Desktop/watermark.jpg");
         shop.setShopImg(shopImg.getPath());
 
 
@@ -67,8 +68,8 @@ public class ShopServiceTest extends BaseTest {
         ShopExecution se = shopService.addShop(shop, is, shopImg.getName());
 
         assertEquals(ShopStateEnum.CHECK.getState(), se.getState());
-//        int effectedNum = shopDao.insertShop(shop);
-//        assertEquals(1, effectedNum);
+        int effectedNum = shopDao.insertShop(shop);
+        assertEquals(1, effectedNum);
 
     }
 }

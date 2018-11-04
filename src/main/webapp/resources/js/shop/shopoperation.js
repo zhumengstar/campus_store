@@ -4,7 +4,6 @@
 $(function () {
     var initUrl = "/shopadmin/getshopinitinfo";
     var registerShopUrl = "/shopadmin/registershop";
-    // alert("hsuadhasiudhaiusd");
     getShopInitInfo();
 
 
@@ -47,7 +46,6 @@ $(function () {
             var formData = new FormData();
 
             formData.append('shopImg', shopImg);
-
             formData.append('shopStr', JSON.stringify(shop));
 
             var verifyCodeActual = $('#j_captcha').val();
@@ -57,29 +55,31 @@ $(function () {
             }
 
             formData.append('verifyCodeActual', verifyCodeActual);
+            console.log(shopImg);
+            console.log(verifyCodeActual);
 
-
-            alert(formData.get('shopImg'));
-            alert(formData.get('shopStr'));
-            alert(formData.get('verifyCodeActual'));
             $.ajax({
                 url: registerShopUrl,
                 type: 'POST',
                 data: formData,
-                contentType: false,
-                processData: false,
-                cache: false,
-                success: function (data) {
-                    if (data.success) {
-                        $.toast('提交成功。。。');
+                contentType:
+                    false,
+                processData:
+                    false,
+                cache:
+                    false,
+                success:
+                    function (data) {
+                        if (data.success) {
+                            $.toast('提交成功。。。');
+                        } else {
+                            $('#captcha_img').click();
+                            $.toast('提交失败。。。' + data.errMsg);
+                        }
 
-                    } else {
-                        $.toast('提交失败。。。' + data.toString());
                     }
-                    $('#captcha_img').click();
-
-                }
-            });
+            })
+            ;
         });
 
     }

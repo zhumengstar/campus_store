@@ -69,10 +69,8 @@
             <param-name>kaptcha.textproducer.font.names</param-name>
             <param-value>Arial</param-value>
         </init-param>
-
-
     </servlet>
-    
+
     <servlet-mapping>
         <servlet-name>Kaptcha</servlet-name>
         <url-pattern>/Kaptcha</url-pattern>

@@ -1,6 +1,6 @@
-package com.java.web;
+package web;
 
-import com.java.BaseTest;
+import baseTest.BaseTest;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Before;
