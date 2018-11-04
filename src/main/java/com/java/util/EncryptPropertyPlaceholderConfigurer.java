@@ -12,15 +12,15 @@ public class EncryptPropertyPlaceholderConfigurer extends PropertyPlaceholderCon
 
     @Override
     protected String convertProperty(String propertyName, String propertyValue) {
-        if(isEncryptProp(propertyName)){
+        if (isEncryptProp(propertyName)) {
 //            String decryptValue=DESUtils.get
         }
         return "r";
     }
 
     private boolean isEncryptProp(String propertyName) {
-        for(String encryptPropertyName:encryptPropNames){
-            if(encryptPropertyName.equals(propertyName))
+        for (String encryptPropertyName : encryptPropNames) {
+            if (encryptPropertyName.equals(propertyName))
                 return true;
         }
         return false;

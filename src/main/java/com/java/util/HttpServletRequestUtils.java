@@ -42,7 +42,7 @@ public class HttpServletRequestUtils {
     public static String getString(HttpServletRequest request, String key) {
         try {
             String result = request.getParameter(key);
-            if (request != null) {
+            if (result != null) {
                 result.trim();
             }
             if ("".equals(result)) {

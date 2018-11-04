@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletRequest;
  * @desc:
  **/
 public class CodeUtils {
-    public static boolean checkVerifyCode(HttpServletRequest request){
-        String verifyCodeExpected=(String)request.getSession().getAttribute(
+    public static boolean checkVerifyCode(HttpServletRequest request) {
+        String verifyCodeExpected = (String) request.getSession().getAttribute(
                 Constants.KAPTCHA_SESSION_KEY);
-        String verifyCodeActual=HttpServletRequestUtils.getString(request,"verifyCodeActual");
+        String verifyCodeActual = HttpServletRequestUtils.getString(request, "verifyCodeActual");
 
-        if(verifyCodeActual==null||!verifyCodeActual.equals(verifyCodeExpected)){
+        if (verifyCodeActual == null || !verifyCodeActual.equals(verifyCodeExpected)) {
             return false;
         }
         return true;

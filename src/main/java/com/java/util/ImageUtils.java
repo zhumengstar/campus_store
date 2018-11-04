@@ -20,11 +20,9 @@ public class ImageUtils {
 
     private static String basePath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
 
-
     private static final SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
 
     private static final Random r = new Random();
-
 
     /**
      * @param thumbnailInputStream
@@ -57,8 +55,7 @@ public class ImageUtils {
         String realFileParentPath = PathUtil.getImgBasePath() + targetAddr;
         File dirPath = new File(realFileParentPath);
         if (!dirPath.exists()) {
-            Boolean a = dirPath.mkdirs();
-            Boolean s = a;
+            dirPath.mkdirs();
         } else {
             ShopStateEnum.INNER_ERROR.getState();
         }
@@ -76,7 +73,6 @@ public class ImageUtils {
 //        String originalFileName = cFile.getName();
         return fileName.substring(fileName.lastIndexOf("."));
     }
-
 
     /**
      * 生成随机文件名，当前年月日小时分钟秒钟+五位随机数
