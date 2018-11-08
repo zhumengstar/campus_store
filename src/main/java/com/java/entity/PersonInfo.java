@@ -3,7 +3,7 @@ package com.java.entity;
 import java.util.Date;
 
 public class PersonInfo {
-    private Long useId;
+    private Long userId;
 
     private String name;
 
@@ -21,12 +21,12 @@ public class PersonInfo {
 
     private Date lastEditTime;
 
-    public Long getUseId() {
-        return useId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setUseId(Long useId) {
-        this.useId = useId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getName() {

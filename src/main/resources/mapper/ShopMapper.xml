@@ -10,7 +10,7 @@
     <insert id="insertShop" useGeneratedKeys="true" keyColumn="shop_id" keyProperty="shopId">
         insert into tb_shop(area_id,owner_id,shop_category_id,shop_name,shop_desc,shop_addr,phone,shop_img,priority,create_time,last_edit_time,
         enable_status,advice) values (#{area.areaId},
-        #{owner.useId},#{shopCategory.shopCategoryId},#{shopName},#{shopDesc},#{shopAddr},#{phone},#{shopImg},#{priority},
+        #{owner.userId},#{shopCategory.shopCategoryId},#{shopName},#{shopDesc},#{shopAddr},#{phone},#{shopImg},#{priority},
         #{createTime},#{lastEditTime},#{enableStatus},#{advice}
         );
     </insert>

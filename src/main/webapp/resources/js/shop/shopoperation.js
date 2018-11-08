@@ -6,7 +6,6 @@ $(function () {
     var registerShopUrl = "/shopadmin/registershop";
     getShopInitInfo();
 
-
     function getShopInitInfo() {
         $.getJSON(initUrl, function (data) {
             if (data.success) {
@@ -22,11 +21,12 @@ $(function () {
                 $('#shop-category').html(tempHtml);
                 $('#area').html(tempAreaHtml);
             }
-
         });
+
 
         $('#submit').click(function () {
             var shop = {};
+            // shop.shopId = shopId;
             shop.shopName = $('#shop-name').val();
             shop.shopAddr = $('#shop-addr').val();
             shop.phone = $('#shop-phone').val();
@@ -42,47 +42,33 @@ $(function () {
                 }).data('id')
             };
             var shopImg = $('#shop-img')[0].files[0];
-
             var formData = new FormData();
-
             formData.append('shopImg', shopImg);
             formData.append('shopStr', JSON.stringify(shop));
-
             var verifyCodeActual = $('#j_captcha').val();
             if (!verifyCodeActual) {
-                $.toast('请输入验证码！');
+                $.toast('请输入验证码!');
                 return;
             }
-
             formData.append('verifyCodeActual', verifyCodeActual);
-            console.log(shopImg);
-            console.log(verifyCodeActual);
-
             $.ajax({
                 url: registerShopUrl,
                 type: 'POST',
                 data: formData,
-                contentType:
-                    false,
-                processData:
-                    false,
-                cache:
-                    false,
-                success:
-                    function (data) {
-                        if (data.success) {
-                            $.toast('提交成功。。。');
-                        } else {
-                            $('#captcha_img').click();
-                            $.toast('提交失败。。。' + data.errMsg);
-                        }
-
+                contentType: false,
+                processData: false,
+                cache: false,
+                success: function (data) {
+                    if (data.success) {
+                        $.toast('提交成功!');
+                    } else {
+                        $.toast('提交失败!' + data.errMsg);
                     }
-            })
-            ;
+                    console.log(data.errMsg);
+                    console.log(data);
+                    $('#captcha_img').click();
+                }
+            });
         });
-
     }
-
-
 });

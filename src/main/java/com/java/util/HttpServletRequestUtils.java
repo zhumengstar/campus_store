@@ -40,12 +40,24 @@ public class HttpServletRequestUtils {
     }
 
     public static String getString(HttpServletRequest request, String key) {
+//        try {
+//            String result = request.getParameter(key);
+//            if (result != null) {
+//                result.trim();
+//            }
+//            if ("".equals(result)) {
+//                result = null;
+//            }
+//            return result;
+//        } catch (Exception e) {
+//            return null;
+//        }
         try {
             String result = request.getParameter(key);
             if (result != null) {
-                result.trim();
+                result = result.trim();
             }
-            if ("".equals(result)) {
+            if (result.equals("")) {
                 result = null;
             }
             return result;

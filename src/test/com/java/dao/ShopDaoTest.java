@@ -28,7 +28,7 @@ public class ShopDaoTest extends BaseTest {
         ShopCategory shopCategory = new ShopCategory();
 
 
-        owner.setUseId(1L);
+        owner.setUserId(1L);
         area.setAreaId(2);
         shopCategory.setShopCategoryId(1L);
 
@@ -37,7 +37,6 @@ public class ShopDaoTest extends BaseTest {
         shop.setArea(area);
 
         shop.setOwner(owner);
-        shop.setOwnerId(owner.getUseId());
 
 
         shop.setShopName("测试店铺");
@@ -69,7 +68,7 @@ public class ShopDaoTest extends BaseTest {
         ShopCategory shopCategory = new ShopCategory();
 
 
-        owner.setUseId(1L);
+        owner.setUserId(1L);
         area.setAreaId(2);
         shopCategory.setShopCategoryId(1L);
 
@@ -78,7 +77,6 @@ public class ShopDaoTest extends BaseTest {
         shop.setArea(area);
 
         shop.setOwner(owner);
-        shop.setOwnerId(owner.getUseId());
 
 
         shop.setShopName("测试店铺");
