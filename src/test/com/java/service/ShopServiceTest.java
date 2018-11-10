@@ -10,6 +10,7 @@ import com.java.entity.ShopCategory;
 import com.java.enums.ShopStateEnum;
 import com.java.exceptions.ShopOperationExecption;
 import com.java.service.ShopService;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,6 +19,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -33,6 +35,21 @@ public class ShopServiceTest extends BaseTest {
     private ShopDao shopDao;
 
     @Test
+    public void testQueryShopListAndCount() {
+        Shop shopCondition = new Shop();
+        ShopCategory sc = new ShopCategory();
+        sc.setShopCategoryId(3L);
+        shopCondition.setShopCategory(sc);
+        ShopExecution se = shopService.getShopList(shopCondition, 2, 9);
+        System.out.println("店铺列表数："+se.getShopList().size());
+        System.out.println("店铺总数数："+se.getCount());
+
+
+
+    }
+
+    @Test
+    @Ignore
     public void testAddShop() throws ShopOperationExecption, FileNotFoundException {
         Shop shop = new Shop();
         PersonInfo owner = new PersonInfo();
@@ -69,5 +86,17 @@ public class ShopServiceTest extends BaseTest {
         int effectedNum = shopDao.insertShop(shop);
         assertEquals(1, effectedNum);
 
+    }
+
+    @Test
+    @Ignore
+    public void testModifyShop() throws ShopOperationExecption, FileNotFoundException {
+        Shop shop = new Shop();
+        shop.setShopId(146L);
+        shop.setShopName("yayaya");
+        File shopImg = new File("/Users/zgh/Desktop/yan.jpg");
+        InputStream is = new FileInputStream(shopImg);
+        ShopExecution shopExecution = shopService.modifyShop(shop, is, "yan.jpg");
+        System.out.println(shopExecution.getShop().getShopImg());
     }
 }

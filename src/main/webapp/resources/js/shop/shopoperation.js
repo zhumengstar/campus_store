@@ -2,9 +2,41 @@
  *
  */
 $(function () {
-    var initUrl = "/shopadmin/getshopinitinfo";
-    var registerShopUrl = "/shopadmin/registershop";
-    getShopInitInfo();
+    var shopId = getQueryString('shopId');
+    // var shopId = getQueryString('shopInfo');
+    var isEdit = shopId?true:false;
+
+    var initUrl = '/shopadmin/getshopinitinfo';
+    var registerShopUrl = '/shopadmin/registershop';
+    var shopInfoUrl = "/shopadmin/getshopbyid?shopId=" + shopId;
+    var editShopUrl = '/shopadmin/modifyshop';
+    if(!isEdit) {
+        //获取不到shopId--->店铺注册
+        getShopInitInfo();
+    } else {
+        //获取到了shopId--->店铺编辑
+        getShopInfo(shopId);
+    }
+    function getShopInfo(shopId) {
+        $.getJSON(shopInfoUrl, function (data) {
+            if(data.success) {
+                var shop = data.shop;
+                $('#shop-name').val(shop.shopName);
+                $('#shop-addr').val(shop.shopAddr);
+                $('#shop-phone').val(shop.phone);
+                $('#shop-desc').val(shop.shopDesc);
+                var shopCategory = '<option data-id="' + shop.shopCategory.shopCategoryId + '" selected>' + shop.shopCategory.shopCategoryName + '</option>';
+                var tempAreaHtml = '';
+                data.areaList.map(function (item, index) {
+                    tempAreaHtml += '<option data-id="' + item.areaId + '">' + item.areaName + '</option>';
+                });
+                $('#shop-category').html(shopCategory);
+                $('#shop-category').attr('disabled', 'disabled');
+                $('#area').html(tempAreaHtml);
+                $("#area option[data-id='" + shop.area.areaId + "']").attr("selected", "selected");
+            }
+        });
+    }
 
     function getShopInitInfo() {
         $.getJSON(initUrl, function (data) {
@@ -13,7 +45,6 @@ $(function () {
                 var tempAreaHtml = '';
                 data.shopCategoryList.map(function (item, index) {
                     tempHtml += '<option data-id="' + item.shopCategoryId + '">' + item.shopCategoryName + '</option>';
-
                 });
                 data.areaList.map(function (item, index) {
                     tempAreaHtml += '<option data-id="' + item.areaId + '">' + item.areaName + '</option>';
@@ -23,10 +54,11 @@ $(function () {
             }
         });
 
-
         $('#submit').click(function () {
             var shop = {};
-            // shop.shopId = shopId;
+            if(isEdit) {
+                shop.shopId = shopId;
+            }
             shop.shopName = $('#shop-name').val();
             shop.shopAddr = $('#shop-addr').val();
             shop.phone = $('#shop-phone').val();
@@ -52,7 +84,7 @@ $(function () {
             }
             formData.append('verifyCodeActual', verifyCodeActual);
             $.ajax({
-                url: registerShopUrl,
+                url: (isEdit?editShopUrl:registerShopUrl),
                 type: 'POST',
                 data: formData,
                 contentType: false,
@@ -64,11 +96,9 @@ $(function () {
                     } else {
                         $.toast('提交失败!' + data.errMsg);
                     }
-                    console.log(data.errMsg);
-                    console.log(data);
                     $('#captcha_img').click();
                 }
             });
         });
     }
-});
+})

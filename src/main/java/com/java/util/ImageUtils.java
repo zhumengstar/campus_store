@@ -1,6 +1,7 @@
 package com.java.util;
 
 import com.java.enums.ShopStateEnum;
+import com.sun.javafx.scene.shape.PathUtils;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
 
@@ -86,6 +87,26 @@ public class ImageUtils {
         return nowTImeStr + rannum;
     }
 
+    /**
+     * storePath是文件的路径还是目录的路径
+     * 如果是文件的路径则删除该文件
+     * 如果是目录的路径则删除该目录下的文件
+     *
+     * @param storePath
+     */
+    public static void deleteFileOrPath(String storePath) {
+        File fileOrPath = new File(PathUtil.getImgBasePath() + storePath);
+        if (fileOrPath.exists()) {
+            if (fileOrPath.isDirectory()) {
+                File file[] = fileOrPath.listFiles();
+                for (int i = 0; i < file.length; i++) {
+                    file[i].delete();
+                }
+
+            }
+            fileOrPath.delete();
+        }
+    }
 
     public static void main(String[] args) throws IOException {
 
