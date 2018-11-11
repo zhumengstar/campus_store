@@ -2,6 +2,7 @@ package com.java.web.superadmin;
 
 import com.java.entity.Area;
 import com.java.service.AreaService;
+import com.java.web.shopadmin.ShopManagementController;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,7 +27,7 @@ import org.slf4j.LoggerFactory;
 public class AreaController {
 
 
-    Logger logger = LoggerFactory.getLogger(AreaController.class);
+    private final static Logger logger = LoggerFactory.getLogger(AreaController.class);
 
     @Autowired
     private AreaService areaService;

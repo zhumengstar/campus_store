@@ -3,22 +3,22 @@ package com.java.entity;
 import java.util.Date;
 
 public class ProductCategory {
-    private Long productCategory;
+    private Long productCategoryId;
 
     private Long shopId;
 
     private String productCategoryName;
 
-    private Integer prority;
+    private Integer priority;
 
     private Date createTime;
 
     public Long getProductCategory() {
-        return productCategory;
+        return productCategoryId;
     }
 
-    public void setProductCategory(Long productCategory) {
-        this.productCategory = productCategory;
+    public void setProductCategory(Long productCategoryId) {
+        this.productCategoryId = productCategoryId;
     }
 
     public Long getShopId() {
@@ -37,12 +37,20 @@ public class ProductCategory {
         this.productCategoryName = productCategoryName;
     }
 
-    public Integer getPrority() {
-        return prority;
+    public Long getProductCategoryId() {
+        return productCategoryId;
     }
 
-    public void setPrority(Integer prority) {
-        this.prority = prority;
+    public void setProductCategoryId(Long productCategoryId) {
+        this.productCategoryId = productCategoryId;
+    }
+
+    public Integer getPriority() {
+        return priority;
+    }
+
+    public void setPriority(Integer priority) {
+        this.priority = priority;
     }
 
     public Date getCreateTime() {

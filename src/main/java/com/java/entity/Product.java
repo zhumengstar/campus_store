@@ -10,6 +10,7 @@ public class Product {
 
     private String productDesc;
 
+    //简略图
     private String imgAddr;
 
     private String normalPrice;

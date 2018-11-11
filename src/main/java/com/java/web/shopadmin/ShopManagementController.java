@@ -1,13 +1,14 @@
 package com.java.web.shopadmin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.java.dto.ImageHolder;
 import com.java.dto.ShopExecution;
 import com.java.entity.Area;
 import com.java.entity.PersonInfo;
 import com.java.entity.Shop;
 import com.java.entity.ShopCategory;
 import com.java.enums.ShopStateEnum;
-import com.java.exceptions.ShopOperationExecption;
+import com.java.exceptions.ShopOperationExecetion;
 import com.java.service.AreaService;
 import com.java.service.ShopCategoryService;
 import com.java.service.ShopService;
@@ -193,7 +194,7 @@ public class ShopManagementController {
 //            PersonInfo owner = new PersonInfo();
 //            //TODO
 //            owner.setUserId(1L);
-//            shop.setOwner(owner);
+            shop.setOwner(owner);
 
             //文件操作
 
@@ -214,7 +215,8 @@ public class ShopManagementController {
 //            }
             ShopExecution se;
             try {
-                se = shopService.addShop(shop, shopImg.getInputStream(), shopImg.getOriginalFilename());
+                ImageHolder thumbnail = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
+                se = shopService.addShop(shop, thumbnail);
                 if (se.getState() == ShopStateEnum.CHECK.getState()) {
                     modelMap.put("success", true);
 
@@ -233,7 +235,7 @@ public class ShopManagementController {
                     modelMap.put("success", false);
                     modelMap.put("errMsg", se.getStateInfo());
                 }
-            } catch (ShopOperationExecption e) {
+            } catch (ShopOperationExecetion e) {
                 modelMap.put("success", false);
                 modelMap.put("errMsg", e.getMessage());
             } catch (IOException e) {
@@ -307,9 +309,12 @@ public class ShopManagementController {
             ShopExecution se;
             try {
                 if (shopImg == null) {
-                    se = shopService.modifyShop(shop, null, shopImg.getOriginalFilename());
+                    ImageHolder thumbnail = new ImageHolder(shopImg.getOriginalFilename(), null);
+                    se = shopService.modifyShop(shop, thumbnail);
                 } else {
-                    se = shopService.modifyShop(shop, shopImg.getInputStream(), shopImg.getOriginalFilename());
+                    ImageHolder thumbnail = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
+
+                    se = shopService.modifyShop(shop, thumbnail);
                 }
 
 
@@ -321,7 +326,7 @@ public class ShopManagementController {
                 }
 
 
-            } catch (ShopOperationExecption e) {
+            } catch (ShopOperationExecetion e) {
                 modelMap.put("success", false);
                 modelMap.put("errMsg", e.getMessage());
             } catch (IOException e) {

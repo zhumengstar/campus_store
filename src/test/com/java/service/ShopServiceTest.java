@@ -2,13 +2,14 @@ package service;
 
 import baseTest.BaseTest;
 import com.java.dao.ShopDao;
+import com.java.dto.ImageHolder;
 import com.java.dto.ShopExecution;
 import com.java.entity.Area;
 import com.java.entity.PersonInfo;
 import com.java.entity.Shop;
 import com.java.entity.ShopCategory;
 import com.java.enums.ShopStateEnum;
-import com.java.exceptions.ShopOperationExecption;
+import com.java.exceptions.ShopOperationExecetion;
 import com.java.service.ShopService;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -19,7 +20,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Date;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -41,16 +41,15 @@ public class ShopServiceTest extends BaseTest {
         sc.setShopCategoryId(3L);
         shopCondition.setShopCategory(sc);
         ShopExecution se = shopService.getShopList(shopCondition, 2, 9);
-        System.out.println("店铺列表数："+se.getShopList().size());
-        System.out.println("店铺总数数："+se.getCount());
-
+        System.out.println("店铺列表数：" + se.getShopList().size());
+        System.out.println("店铺总数数：" + se.getCount());
 
 
     }
 
     @Test
     @Ignore
-    public void testAddShop() throws ShopOperationExecption, FileNotFoundException {
+    public void testAddShop() throws ShopOperationExecetion, FileNotFoundException {
         Shop shop = new Shop();
         PersonInfo owner = new PersonInfo();
         Area area = new Area();
@@ -80,7 +79,8 @@ public class ShopServiceTest extends BaseTest {
 
         InputStream is = null;
         is = new FileInputStream(shopImg);
-        ShopExecution se = shopService.addShop(shop, is, shopImg.getName());
+        ImageHolder thumbnail = new ImageHolder(shopImg.getName(), is);
+        ShopExecution se = shopService.addShop(shop, thumbnail);
 
         assertEquals(ShopStateEnum.CHECK.getState(), se.getState());
         int effectedNum = shopDao.insertShop(shop);
@@ -89,14 +89,15 @@ public class ShopServiceTest extends BaseTest {
     }
 
     @Test
-    @Ignore
-    public void testModifyShop() throws ShopOperationExecption, FileNotFoundException {
+    public void testModifyShop() throws ShopOperationExecetion, FileNotFoundException {
         Shop shop = new Shop();
         shop.setShopId(146L);
         shop.setShopName("yayaya");
         File shopImg = new File("/Users/zgh/Desktop/yan.jpg");
         InputStream is = new FileInputStream(shopImg);
-        ShopExecution shopExecution = shopService.modifyShop(shop, is, "yan.jpg");
+
+        ImageHolder thumbnail = new ImageHolder(shopImg.getName(), is);
+        ShopExecution shopExecution = shopService.modifyShop(shop, thumbnail);
         System.out.println(shopExecution.getShop().getShopImg());
     }
 }

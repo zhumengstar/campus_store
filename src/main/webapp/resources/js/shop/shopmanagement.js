@@ -9,8 +9,8 @@ $(function () {
             if (data.shopId != undefined && data.shopId != null) {
                 shopId = data.shopId;
             }
-            $('#shopInfo')
-                .attr('href', '/shopadmin/shopoperation?shopId=' + shopId);
+            $('#shopId').attr('href', '/shopadmin/productcategorymanagement?shopId=' + shopId);
+            $('#shopInfo').attr('href', '/shopadmin/shopoperation?shopId=' + shopId);
         }
     });
 });

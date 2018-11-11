@@ -1,10 +1,10 @@
 package com.java.service;
 
+import com.java.dto.ImageHolder;
 import com.java.dto.ShopExecution;
 import com.java.entity.Shop;
-import com.java.exceptions.ShopOperationExecption;
+import com.java.exceptions.ShopOperationExecetion;
 
-import java.io.File;
 import java.io.InputStream;
 
 /**
@@ -36,21 +36,19 @@ public interface ShopService {
      * 修改店铺信息
      *
      * @param shop
-     * @param shopImgInputStream
-     * @param fileName
+     * @param thumbnail
      * @return
-     * @throws ShopOperationExecption
+     * @throws ShopOperationExecetion
      */
-    ShopExecution modifyShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationExecption;
+    ShopExecution modifyShop(Shop shop, ImageHolder thumbnail) throws ShopOperationExecetion;
 
     /**
      * 添加店铺
      *
      * @param shop
-     * @param shopImgInputStream
-     * @param fileName
+     * @param thumbnail
      * @return
-     * @throws ShopOperationExecption
+     * @throws ShopOperationExecetion
      */
-    ShopExecution addShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationExecption;
+    ShopExecution addShop(Shop shop, ImageHolder thumbnail) throws ShopOperationExecetion;
 }
