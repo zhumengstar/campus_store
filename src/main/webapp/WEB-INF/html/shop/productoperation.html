@@ -30,6 +30,10 @@
         <div class="page-group">
             <div id="page-label-input" class="page">
                 <header class="bar bar-nav">
+                    <a class="button button-link button-nav pull-left back" href="/demos/form">
+                        <span class="icon icon-left"></span>
+                        返回
+                    </a>
                     <h1 class="title">商品编辑</h1>
                 </header>
                 <div class="content">
@@ -52,7 +56,7 @@
                                     <div class="item-inner">
                                         <div class="item-title label">目录</div>
                                         <div class="item-input">
-                                            <select id="product-category"></select>
+                                            <select id="category"></select>
                                         </div>
                                     </div>
                                 </div>
@@ -104,10 +108,10 @@
                             <!-- 店铺简介 textarea -->
                             <li class="align-top">
                                 <div class="item-content">
-                                    <div class="item-inner">
+                                    <div class="item-inner detail-img-div">
                                         <div class="item-title label">详情图片</div>
                                         <div class="item-input" id="detail-img">
-                                            <input type="file" id="detail-img"/>
+                                            <input type="file" class="detail-img"/>
                                         </div>
                                     </div>
                                 </div>
@@ -142,7 +146,7 @@
                     <div class="content-block">
                         <div class="row">
                             <div class="col-50">
-                                <a href="/shopadmin/productmanagement"
+                                <a href="#"
                                    class="button button-big button-fill button-danger"
                                    id="back">返回商品管理
                                 </a>
@@ -161,6 +165,6 @@
         <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
         <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
         <script type='text/javascript' src='../resources/js/common/common.js' charset='utf-8'></script>
-        <!--<script type='text/javascript' src='../resources/js/shop/shopoperation.js' charset='utf-8'></script>-->
+        <script type='text/javascript' src='../resources/js/shop/productoperation.js' charset='utf-8'></script>
     </body>
 </html>
