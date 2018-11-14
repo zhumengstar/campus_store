@@ -26,6 +26,8 @@ public class Product {
     //-1：不可用 0：下架 1：在前端系统展示
     private Integer enableStatus;
 
+
+
     private List<ProductImg> productImgList;
 
     private ProductCategory productCategory;
