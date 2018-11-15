@@ -1,5 +1,6 @@
 package com.java.dao;
 
+import com.java.entity.Product;
 import com.java.entity.ProductImg;
 
 import java.util.List;
@@ -24,4 +25,10 @@ public interface ProductImgDao {
      * @return
      */
     int deleteProductImgByProductId(Long productId);
+
+    /**
+     * @param productId
+     * @return
+     */
+    List<ProductImg> queryProductImgList(Long productId);
 }

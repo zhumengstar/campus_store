@@ -8,13 +8,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e3476f31-030f-4d83-9eae-398f01a38f9f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/java/dao/ProductDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/java/dao/ProductDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/java/dao/ProductImgDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/java/dao/ProductImgDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/java/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/java/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/java/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/java/service/ProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/java/service/impl/ProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/java/service/impl/ProductServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ProductImgMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductImgMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/java/dao/ProductDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/java/dao/ProductDaoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/com/java/dao/ProductImgDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/com/java/dao/ProductImgDaoTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,15 +39,15 @@
     <session id="-1275464614">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="3" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -59,12 +57,12 @@
           <entry key="class" value="24" />
           <entry key="css" value="7" />
           <entry key="html" value="23" />
-          <entry key="java" value="163" />
+          <entry key="java" value="166" />
           <entry key="jpg" value="2" />
           <entry key="js" value="29" />
           <entry key="log" value="9" />
           <entry key="properties" value="1" />
-          <entry key="xml" value="35" />
+          <entry key="xml" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -72,12 +70,12 @@
           <entry key="CLASS" value="24" />
           <entry key="CSS" value="7" />
           <entry key="Image" value="2" />
-          <entry key="JAVA" value="163" />
+          <entry key="JAVA" value="166" />
           <entry key="JavaScript" value="21" />
           <entry key="Log" value="9" />
           <entry key="PLAIN_TEXT" value="9" />
           <entry key="Properties" value="1" />
-          <entry key="XML" value="59" />
+          <entry key="XML" value="61" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -86,22 +84,22 @@
           <entry key="css" value="111" />
           <entry key="dummy" value="32" />
           <entry key="html" value="507" />
-          <entry key="java" value="11494" />
+          <entry key="java" value="12604" />
           <entry key="js" value="4492" />
           <entry key="properties" value="9" />
-          <entry key="xml" value="5050" />
+          <entry key="xml" value="5054" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="111" />
           <entry key="HTML" value="1" />
-          <entry key="JAVA" value="11494" />
+          <entry key="JAVA" value="12604" />
           <entry key="JavaScript" value="4476" />
           <entry key="PLAIN_TEXT" value="47" />
           <entry key="Properties" value="9" />
           <entry key="SQL" value="146" />
-          <entry key="XML" value="5640" />
+          <entry key="XML" value="5644" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -115,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/java/dao/ProductDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+            <state relative-caret-position="495">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,19 +123,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/dao/ProductImgDao.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/service/ProductService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="25" column="35" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="35" />
+            <state relative-caret-position="615">
+              <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="675">
+              <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/service/impl/ProductServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="96" column="14" lean-forward="true" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+            <state relative-caret-position="362">
+              <caret line="126" column="38" lean-forward="true" selection-start-line="126" selection-start-column="38" selection-end-line="126" selection-end-column="38" />
+              <folding>
+                <element signature="e#1033#1034#0" expanded="true" />
+                <element signature="e#1060#1061#0" expanded="true" />
+                <element signature="e#2880#2881#0" expanded="true" />
+                <element signature="e#2941#2942#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,8 +158,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProductImgMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="390">
+              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/lang/Exception.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/dao/ProductImgDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="32" column="40" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -154,35 +185,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/com/java/dao/ProductDaoTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/com/java/dao/ProductImgDaoTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-159">
-              <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/java/entity/Product.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.3.18.RELEASE/spring-tx-4.3.18.RELEASE.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2130">
-              <caret line="174" selection-start-line="174" selection-end-line="174" />
+            <state relative-caret-position="615">
+              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -256,10 +260,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/java/dto/ProductExecution.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/java/enums/ProductStateEnum.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/java/web/superadmin/AreaController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/java/service/impl/ProductServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/java/service/impl/ShopServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/com/java/service/ProductServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/java/service/ProductService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/java/util/ImageUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/java/web/shopadmin/ProductManagementController.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -269,11 +271,13 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/html/shop/productoperation.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/html/shop/productcategorymanagement.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/java/dao/ProductDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/java/dao/ProductImgDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/java/entity/Product.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/ProductImgMapper.xml" />
         <option value="$PROJECT_DIR$/src/test/com/java/dao/ProductImgDaoTest.java" />
         <option value="$PROJECT_DIR$/src/test/com/java/dao/ProductDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/java/service/ProductService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/java/dao/ProductImgDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/java/service/impl/ProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/ProductImgMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml" />
       </list>
     </option>
@@ -324,7 +328,7 @@
     <option name="jreName" value="1.8" />
     <option name="vmOptions" value="-Dmaven.multiModuleProjectDirectory=$M2_HOME" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="183" />
     <option name="width" value="940" />
     <option name="height" value="891" />
@@ -604,8 +608,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -673,6 +677,27 @@
               <item name="campus_store" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="campus_store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="campus_store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="campus_store" type="b2602c69:ProjectViewProjectNode" />
+              <item name="campus_store" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -683,36 +708,6 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="mapper" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="campus_store" type="b2602c69:ProjectViewProjectNode" />
-              <item name="campus_store" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="campus_store" type="b2602c69:ProjectViewProjectNode" />
-              <item name="campus_store" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="campus_store" type="b2602c69:ProjectViewProjectNode" />
-              <item name="campus_store" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="campus_store" type="b2602c69:ProjectViewProjectNode" />
-              <item name="campus_store" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -722,7 +717,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542208600212" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542282760407" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -949,20 +944,12 @@
       <workItem from="1542036000562" duration="502000" />
       <workItem from="1542083943119" duration="558000" />
       <workItem from="1542104825252" duration="8503000" />
-      <workItem from="1542203234412" duration="5231000" />
+      <workItem from="1542203234412" duration="5783000" />
+      <workItem from="1542285912017" duration="2465000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ProductDaoTest_testUpdateProduct - 2018.11.14 at 23h 01m 25s.xml">
-      <configuration name="ProductDaoTest.testUpdateProduct" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ProductDaoTest_testUpdateProduct - 2018.11.14 at 23h 01m 41s.xml">
-      <configuration name="ProductDaoTest.testUpdateProduct" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ProductDaoTest_testUpdateProduct - 2018.11.14 at 23h 02m 37s.xml">
-      <configuration name="ProductDaoTest.testUpdateProduct" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="ProductDaoTest_testUpdateProduct - 2018.11.14 at 23h 03m 13s.xml">
       <configuration name="ProductDaoTest.testUpdateProduct" configurationId="JUnit" />
     </history-entry>
@@ -984,9 +971,18 @@
     <history-entry file="ProductDaoTest_testUpdateProduct - 2018.11.14 at 23h 11m 11s.xml">
       <configuration name="ProductDaoTest.testUpdateProduct" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="ProductDaoTest_testUpdateProduct - 2018.11.14 at 23h 15m 42s.xml">
+      <configuration name="ProductDaoTest.testUpdateProduct" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductDaoTest_testUpdateProduct - 2018.11.14 at 23h 16m 26s.xml">
+      <configuration name="ProductDaoTest.testUpdateProduct" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ProductDaoTest_testUpdateProduct - 2018.11.14 at 23h 16m 45s.xml">
+      <configuration name="ProductDaoTest.testUpdateProduct" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78423000" />
+    <option name="totallyTimeSpent" value="81440000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -999,8 +995,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23032904" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23319027" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1010,7 +1007,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28554216" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28554216" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.42168674" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1087,13 +1084,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/enums/ProductCategoryStateEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="33" lean-forward="true" selection-start-line="8" selection-start-column="3" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/java/enums/ProductStateEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1133,13 +1123,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="64" column="50" selection-start-line="64" selection-start-column="50" selection-end-line="64" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/service/ProductService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -1295,13 +1278,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/service/impl/ProductServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.3.18.RELEASE/spring-aop-4.3.18.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2175">
@@ -1330,6 +1306,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/java/dao/ProductImgDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/entity/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/4.3.18.RELEASE/spring-tx-4.3.18.RELEASE.jar!/org/springframework/transaction/interceptor/TransactionAspectSupport.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2130">
@@ -1351,55 +1341,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/com/java/dao/ProductDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home/src.zip!/java/lang/Exception.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/service/ProductService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/dao/ProductImgDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="32" column="40" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProductImgMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/java/dao/ProductDao.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        <state relative-caret-position="495">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/dao/ProductImgDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="35" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProductImgMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="13" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/entity/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="32" column="44" lean-forward="true" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/java/dao/ProductImgDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-159">
-          <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/com/java/dao/ProductDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/ProductMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="96" column="14" lean-forward="true" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+        <state relative-caret-position="675">
+          <caret line="45" column="20" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/java/service/impl/ProductServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="126" column="38" lean-forward="true" selection-start-line="126" selection-start-column="38" selection-end-line="126" selection-end-column="38" />
+          <folding>
+            <element signature="e#1033#1034#0" expanded="true" />
+            <element signature="e#1060#1061#0" expanded="true" />
+            <element signature="e#2880#2881#0" expanded="true" />
+            <element signature="e#2941#2942#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
