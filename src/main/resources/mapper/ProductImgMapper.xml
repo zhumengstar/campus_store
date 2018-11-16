@@ -24,6 +24,13 @@
     </delete>
 
     <!--queryProductImgList-->
+    <select id="queryProductImgList" resultType="com.java.entity.ProductImg">
+        select product_img_id,img_addr,img_desc,priority,create_time,product_id
+        from tb_product_img
+        where product_id=#{productId}
+        order by product_img_id;
+
+    </select>
 
 
 </mapper>

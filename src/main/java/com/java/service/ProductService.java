@@ -3,6 +3,7 @@ package com.java.service;
 import com.java.dto.ImageHolder;
 import com.java.dto.ProductExecution;
 import com.java.entity.Product;
+import com.java.entity.ProductCategory;
 import com.java.exceptions.ProductOperationException;
 
 import java.util.List;
@@ -43,12 +44,11 @@ public interface ProductService {
      * 修改店铺信息及图片处理
      *
      * @param product
-     * @param thymbnail
+     * @param thumbnail
      * @param productImgHolderList
      * @return
      * @throws ProductOperationException
      */
-    ProductExecution modifyProduct(Product product, ImageHolder thymbnail, List<ImageHolder> productImgHolderList) throws ProductOperationException;
-
+    ProductExecution modifyProduct(Product product, ImageHolder thumbnail, List<ImageHolder> productImgHolderList) throws ProductOperationException;
 
 }

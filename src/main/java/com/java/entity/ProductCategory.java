@@ -13,14 +13,6 @@ public class ProductCategory {
 
     private Date createTime;
 
-    public Long getProductCategory() {
-        return productCategoryId;
-    }
-
-    public void setProductCategory(Long productCategoryId) {
-        this.productCategoryId = productCategoryId;
-    }
-
     public Long getShopId() {
         return shopId;
     }

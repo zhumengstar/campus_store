@@ -3,6 +3,8 @@ package com.java.dao;
 import com.java.entity.Product;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 /**
  * @author:zhumeng
  * @desc:
@@ -39,4 +41,15 @@ public interface ProductDao {
      * @return
      */
     int updateProduct(Product product);
+
+    /**
+     * 查询商品列表并分页，可输入对条件有，商品名（模糊） ，商品状态，店铺id，商品类别
+     *
+     * @param productCondition
+     * @param rowIndex
+     * @param pageSize
+     * @return
+     */
+    List<Product> queryProductList(@Param("productCondition")Product productCondition,@Param("rowIndex")int rowIndex,@Param("pageSize")int pageSize);
+
 }

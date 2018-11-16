@@ -15,11 +15,19 @@ public class ProductExecution {
     //结果状态
     private int state;
 
+    //状态标识
     private String stateInfo;
 
+    //商品数量
+    private int count;
+
+    //操作的product（增删改商品的时候用）
+    private Product product;
+
+
+    //获取product列表（查询商品列表的时候用）
     private List<Product> productList;
 
-    private Product product;
 
     public ProductExecution() {
     }
@@ -41,6 +49,22 @@ public class ProductExecution {
     public ProductExecution(ProductStateEnum stateEnum, Product product) {
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
+        this.product = product;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
         this.product = product;
     }
 

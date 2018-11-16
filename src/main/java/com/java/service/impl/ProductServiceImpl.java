@@ -5,11 +5,13 @@ import com.java.dao.ProductImgDao;
 import com.java.dto.ImageHolder;
 import com.java.dto.ProductExecution;
 import com.java.entity.Product;
+import com.java.entity.ProductCategory;
 import com.java.entity.ProductImg;
 import com.java.enums.ProductStateEnum;
 import com.java.exceptions.ProductOperationException;
 import com.java.service.ProductService;
 import com.java.util.ImageUtils;
+import com.java.util.PageCaculator;
 import com.java.util.PathUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,9 +35,26 @@ public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductImgDao productImgDao;
 
+
+    /**
+     * 通过商品id查询商品
+     *
+     * @param productCondition
+     * @param pageIndex
+     * @param pageSize
+     * @return
+     */
     @Override
     public ProductExecution getProductList(Product productCondition, int pageIndex, int pageSize) {
-        return null;
+        //页码转换成数据库的行码，并调用dao层取回指定页码的商品列表
+        int rowIdnex = PageCaculator.caculateRowIndex(pageIndex, pageSize);
+        List<Product> productList = productDao.queryProductList(productCondition, pageIndex, pageSize);
+        //基于同样的查询条件返回该查询条件下的商品数量
+        int count = productDao.queryProductCount(productCondition);
+        ProductExecution pe = new ProductExecution();
+        pe.setProductList(productList);
+        pe.setCount(count);
+        return pe;
     }
 
     /**
@@ -94,6 +113,7 @@ public class ProductServiceImpl implements ProductService {
     public Product getProductById(Long productId) {
         return productDao.queryProductById(productId);
     }
+
 
     /**
      * 1.若缩略图参数有值，则处理缩略图
