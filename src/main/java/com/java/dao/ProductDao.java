@@ -50,6 +50,14 @@ public interface ProductDao {
      * @param pageSize
      * @return
      */
-    List<Product> queryProductList(@Param("productCondition")Product productCondition,@Param("rowIndex")int rowIndex,@Param("pageSize")int pageSize);
+    List<Product> queryProductList(@Param("productCondition") Product productCondition, @Param("rowIndex") int rowIndex, @Param("pageSize") int pageSize);
+
+    /**
+     * 删除商品类别之前将商品类别ID置为空
+     *
+     * @param productCategoryId
+     * @return
+     */
+    int updateProductCategoryToNull(Long productCategoryId);
 
 }

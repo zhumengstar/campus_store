@@ -79,4 +79,10 @@ public class ProductDaoTest extends BaseTest {
     }
 
 
+    @Test
+    public void updateProductCategoryToNull() throws Exception {
+        int effectedNum = productDao.updateProductCategoryToNull(44L);
+        assertEquals(1, effectedNum);
+    }
+
 }
