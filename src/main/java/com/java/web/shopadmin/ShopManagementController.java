@@ -281,6 +281,7 @@ public class ShopManagementController {
         }
         //获取前端传来的文件流,将其接收到shopImg
         CommonsMultipartFile shopImg = null;
+
         CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
         if (commonsMultipartResolver.isMultipart(request)) {
             MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
@@ -309,11 +310,9 @@ public class ShopManagementController {
             ShopExecution se;
             try {
                 if (shopImg == null) {
-                    ImageHolder thumbnail = new ImageHolder(shopImg.getOriginalFilename(), null);
-                    se = shopService.modifyShop(shop, thumbnail);
+                    se = shopService.modifyShop(shop, null);
                 } else {
                     ImageHolder thumbnail = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
-
                     se = shopService.modifyShop(shop, thumbnail);
                 }
 

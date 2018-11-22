@@ -55,7 +55,7 @@ public class ShopServiceImpl implements ShopService {
         } else {
             //1.判断是否需要处理图片
             try {
-                if (thumbnail.getImage() != null && thumbnail.getImageName() != null && !"".equals(thumbnail.getImageName())) {
+                if (thumbnail != null && thumbnail.getImage() != null && thumbnail.getImageName() != null && !"".equals(thumbnail.getImageName())) {
                     Shop tempShop = shopDao.queryByShopId(shop.getShopId());
                     if (tempShop.getShopImg() != null) {
                         ImageUtils.deleteFileOrPath(tempShop.getShopImg());
