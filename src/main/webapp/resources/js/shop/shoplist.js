@@ -4,7 +4,7 @@ $(function () {
     function getlist(e) {
         $.ajax({
             url: "/shopadmin/getshoplist",
-            type: "get",
+            type: "GET",
             dataType: "json",
             success: function (data) {
                 if (data.success) {

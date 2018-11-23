@@ -3,7 +3,6 @@ package com.java.service.impl;
 import com.java.dao.ProductCategoryDao;
 import com.java.dao.ProductDao;
 import com.java.dto.ProductCategoryExecution;
-import com.java.entity.Product;
 import com.java.entity.ProductCategory;
 import com.java.enums.ProductCategoryStateEnum;
 import com.java.exceptions.ProductCategoryOperationException;
@@ -81,4 +80,6 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
             throw new ProductCategoryOperationException("deleteProductCategory error:" + e.getMessage());
         }
     }
+
+
 }
