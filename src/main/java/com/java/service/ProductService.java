@@ -14,6 +14,7 @@ import java.util.List;
  **/
 public interface ProductService {
 
+
     /**
      * 查询商品列表并分页，可输入条件有：商品名（模糊），商品状态，店铺id，商品类别
      *

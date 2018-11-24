@@ -13,6 +13,8 @@ import com.java.service.ProductService;
 import com.java.util.CodeUtils;
 import com.java.util.HttpServletRequestUtils;
 import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +41,9 @@ import java.util.Map;
 @Controller
 @RequestMapping("/shopadmin")
 public class ProductManagementController {
+
+    private static final Logger logger = LoggerFactory.getLogger(ProductManagementController.class);
+
     @Autowired
     private ProductService productService;
 
@@ -122,11 +127,15 @@ public class ProductManagementController {
 
     private ImageHolder handleImage(MultipartHttpServletRequest request, List<ImageHolder> productImgList) throws IOException {
         MultipartHttpServletRequest multipartRequest;
-        ImageHolder thumbnail;
+        ImageHolder thumbnail=null;
         multipartRequest = request;
         //取出缩略图并构建ImageHolder
-        CommonsMultipartFile thumbnailFile = (CommonsMultipartFile) multipartRequest.getFile("thumbnail");
-        thumbnail = new ImageHolder(thumbnailFile.getOriginalFilename(), thumbnailFile.getInputStream());
+        try {
+            CommonsMultipartFile thumbnailFile = (CommonsMultipartFile) multipartRequest.getFile("thumbnail");
+            thumbnail = new ImageHolder(thumbnailFile.getOriginalFilename(), thumbnailFile.getInputStream());
+        } catch (Exception e) {
+            logger.debug("无缩略图异常");
+        }
         //取出详情图列表并构建List<ImageHolder>列表对象，最多支持六张图片上传
         for (int i = 0; i < IMAGEMAXCOUNT; i++) {
             CommonsMultipartFile productImgFile = (CommonsMultipartFile) multipartRequest.getFile("productImg" + i);
@@ -134,8 +143,6 @@ public class ProductManagementController {
                 //若取出的第i个详情图片文件流不为空，则将其加入详情图列表
                 ImageHolder productImg = new ImageHolder(productImgFile.getOriginalFilename(), productImgFile.getInputStream());
                 productImgList.add(productImg);
-
-
             } else {
                 //若取出第i个详情图文件流为空，则终止循环
                 break;
@@ -185,8 +192,10 @@ public class ProductManagementController {
         ImageHolder thumbnail = null;
         List<ImageHolder> productImgList = new ArrayList<>();
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
-        //若请求中存在文件流，则取出相关的文件（包括缩略图和详情图）
+        //若请求中存在文件流，则取出相关的文件（包括缩略图和详情图)
         try {
+
+            logger.debug("=================" + multipartResolver.isMultipart(request));
             if (multipartResolver.isMultipart(request)) {
                 thumbnail = handleImage((MultipartHttpServletRequest) request, productImgList);
             }
@@ -216,8 +225,6 @@ public class ProductManagementController {
 //                Shop s=new Shop();
 //                s.setShopId(1L);
 //                request.setAttribute("currentShop",s);
-//
-
                 Shop currentShop = (Shop) request.getSession().getAttribute("currentShop");
                 Shop shop = new Shop();
                 shop.setShopId(currentShop.getShopId());
