@@ -127,15 +127,14 @@ public class ProductManagementController {
 
     private ImageHolder handleImage(MultipartHttpServletRequest request, List<ImageHolder> productImgList) throws IOException {
         MultipartHttpServletRequest multipartRequest;
-        ImageHolder thumbnail=null;
+        ImageHolder thumbnail = null;
         multipartRequest = request;
         //取出缩略图并构建ImageHolder
-        try {
-            CommonsMultipartFile thumbnailFile = (CommonsMultipartFile) multipartRequest.getFile("thumbnail");
+
+        CommonsMultipartFile thumbnailFile = (CommonsMultipartFile) multipartRequest.getFile("thumbnail");
+        if (thumbnailFile != null)
             thumbnail = new ImageHolder(thumbnailFile.getOriginalFilename(), thumbnailFile.getInputStream());
-        } catch (Exception e) {
-            logger.debug("无缩略图异常");
-        }
+
         //取出详情图列表并构建List<ImageHolder>列表对象，最多支持六张图片上传
         for (int i = 0; i < IMAGEMAXCOUNT; i++) {
             CommonsMultipartFile productImgFile = (CommonsMultipartFile) multipartRequest.getFile("productImg" + i);
@@ -145,7 +144,7 @@ public class ProductManagementController {
                 productImgList.add(productImg);
             } else {
                 //若取出第i个详情图文件流为空，则终止循环
-                break;
+                continue;
             }
 
         }
@@ -202,6 +201,7 @@ public class ProductManagementController {
         } catch (Exception e) {
             modelMap.put("success", false);
             modelMap.put("errMsg", e.toString());
+            return modelMap;
 
         }
         try {
