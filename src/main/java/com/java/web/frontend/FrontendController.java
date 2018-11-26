@@ -15,4 +15,22 @@ public class FrontendController {
     public String Index() {
         return "/frontend/index";
     }
+
+    //店铺类别列表页
+    @RequestMapping(value = "/shoplist")
+    private String Shoplist() {
+        return "frontend/shoplist";
+    }
+
+    //店铺详情页
+    @RequestMapping(value = "/shopdetail")
+    private String Shopdetail() {
+        return "frontend/shopdetail";
+    }
+
+    //店铺详情页
+    @RequestMapping(value = "/productdetail")
+    private String Productdetail() {
+        return "frontend/productdetail";
+    }
 }

@@ -2,7 +2,7 @@ $(function () {
     var url = "/front/listmainpageinfo";
     $.getJSON(url,
         function (data) {
-        console.info(data.success);
+            console.info(data.success);
             if (data.success) {
                 var headLineList = data.headLineList;
                 var swiperHtml = '';
@@ -28,7 +28,7 @@ $(function () {
                         + '<p class="shop-desc">' + item.shopCategoryDesc + '</p>'
                         + '</div>'
                         + '<div class="shop-classify-img-warp">'
-                        + '<img class="shop-img" src="' + item.shopCategoryImg + '">'
+                        + '<img class="shop-img" src="' + 'http://localhost:8080' + item.shopCategoryImg + '">'
                         + '</div>'
                         + '</div>';
                 });
