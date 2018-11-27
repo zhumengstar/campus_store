@@ -8,11 +8,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -24,9 +22,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 //配置事务的回滚,对数据库的增删改都会回滚,便于测试用例的循环利用
-@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = true)
-@Transactional
-
 @WebAppConfiguration
 public class Test extends BaseTest {
     //记得配置log4j.properties ,的命令行输出水平是debug

@@ -20,7 +20,7 @@ import java.util.Map;
  * @desc:
  **/
 @Controller
-@RequestMapping("/front")
+@RequestMapping("/frontend")
 public class MainPageController {
     @Autowired
     private ShopCategoryService shopCategoryService;

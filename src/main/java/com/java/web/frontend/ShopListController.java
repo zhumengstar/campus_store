@@ -24,7 +24,7 @@ import java.util.Map;
  * @author:zhumeng
  * @desc:
  **/
-@RequestMapping(value = "frontend")
+@RequestMapping(value = "/frontend")
 @Controller
 public class ShopListController {
     @Autowired
@@ -36,7 +36,7 @@ public class ShopListController {
     @Autowired
     private ShopService shopService;
 
-    @RequestMapping(value = "/listshoppageinfo", method = RequestMethod.GET)
+    @RequestMapping(value = "/listshopspageinfo", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, Object> listShopsPageInfo(HttpServletRequest request) {
         Map<String, Object> modelMap = new HashMap<>();

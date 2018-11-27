@@ -5,7 +5,7 @@ import java.util.Date;
 public class PersonInfo {
     private Long userId;
 
-    private String name;
+    private String sName;
 
     private String profileImg;
 
@@ -29,12 +29,12 @@ public class PersonInfo {
         this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getSName() {
+        return sName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSName(String sName) {
+        this.sName = sName;
     }
 
     public String getProfileImg() {

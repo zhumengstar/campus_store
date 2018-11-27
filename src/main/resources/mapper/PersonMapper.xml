@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.dao.PersonDao">
+    <select id="getPersonById" resultType="com.java.entity.PersonInfo" parameterType="Long">
+        select
+        user_id,
+        s_name,
+        birthday,
+        gender,
+        phone,
+        email,
+        profile_img,
+        customer_flag,
+        shop_owner_flag,
+        admin_flag,
+        create_time,
+        last_edit_time,
+        enable_status
+        from
+        tb_person_info
+        where
+        user_id=#{personId}
+    </select>
+
+
+</mapper>

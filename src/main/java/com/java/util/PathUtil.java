@@ -12,9 +12,9 @@ public class PathUtil {
         String os = System.getProperty("os.name");
         String basePath = "";
         if (os.toLowerCase().startsWith("win")) {
-            basePath = "D:/project/image/";
+            basePath = "D:/root";
         } else {
-            basePath = "/Users/zgh/Desktop/images";
+            basePath = "/root";
         }
         basePath = basePath.replace("/", seperator);
         return basePath;

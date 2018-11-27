@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class FrontendController {
     @RequestMapping(value = "/index")
     public String Index() {
-        return "/frontend/index";
+        return "frontend/index";
     }
 
     //店铺类别列表页
@@ -28,7 +28,7 @@ public class FrontendController {
         return "frontend/shopdetail";
     }
 
-    //店铺详情页
+    //商品详情页
     @RequestMapping(value = "/productdetail")
     private String Productdetail() {
         return "frontend/productdetail";

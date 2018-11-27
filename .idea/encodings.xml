@@ -2,6 +2,17 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="GB2312">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/java/util/DESUtils.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/java/util/EncryptPropertyPlaceholderConfigurer.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/java/util/QRCodeUtil.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/java/util/ShortNetAddress.java" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/java/util/baidu" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/java/util/weixin" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/watermark.jpg" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/html/frontend/productdetail.html" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/html/frontend/shopdetail.html" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/css/frontend/productdetail.css" charset="GB2312" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resources/js/frontend/productdetail.js" charset="GB2312" />
     <file url="PROJECT" charset="GB2312" />
   </component>
 </project>

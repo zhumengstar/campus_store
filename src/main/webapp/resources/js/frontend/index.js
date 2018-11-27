@@ -1,5 +1,5 @@
 $(function () {
-    var url = "/front/listmainpageinfo";
+    var url = "/frontend/listmainpageinfo";
     $.getJSON(url,
         function (data) {
             console.info(data.success);

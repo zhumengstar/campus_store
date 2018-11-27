@@ -10,6 +10,7 @@ $(function () {
                 if (data.success) {
                     handleList(data.shopList);
                     handleUser(data.user);
+                    // console.info()
                 }
 
             }
@@ -18,7 +19,10 @@ $(function () {
     }
 
     function handleUser(data) {
-        $('#user-name').text(data.name);
+
+        console.info(data.sname);
+        console.info(data);
+        $('#user-name').text(data.sname);
 
     }
 
