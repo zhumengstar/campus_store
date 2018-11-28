@@ -1,7 +1,7 @@
 package com.java.service.impl;
 
 import com.java.dao.AreaDao;
-import com.java.dao.PersonDao;
+import com.java.dao.PersonInfoDao;
 import com.java.entity.Area;
 import com.java.entity.PersonInfo;
 import com.java.service.AreaService;
@@ -21,7 +21,7 @@ public class AreaServiceImpl implements AreaService {
     private AreaDao areaDao;
 
     @Autowired
-    private PersonDao personDao;
+    private PersonInfoDao personDao;
 
     @Override
     public List<Area> getAreaList() {

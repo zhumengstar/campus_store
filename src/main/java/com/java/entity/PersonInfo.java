@@ -17,9 +17,47 @@ public class PersonInfo {
 
     private Integer userType;
 
+    private Long customerFlag;
+
+    private Long shopOwnerFlag;
+
+    private Long adminFlag;
+
     private Date createTime;
 
     private Date lastEditTime;
+
+    public Long getAdminFlag() {
+        return adminFlag;
+    }
+
+    public void setAdminFlag(Long adminFlag) {
+        this.adminFlag = adminFlag;
+    }
+
+    public Long getShopOwnerFlag() {
+        return shopOwnerFlag;
+    }
+
+    public void setShopOwnerFlag(Long shopOwnerFlag) {
+        this.shopOwnerFlag = shopOwnerFlag;
+    }
+
+    public String getsName() {
+        return sName;
+    }
+
+    public void setsName(String sName) {
+        this.sName = sName;
+    }
+
+    public Long getCustomerFlag() {
+        return customerFlag;
+    }
+
+    public void setCustomerFlag(Long customerFlag) {
+        this.customerFlag = customerFlag;
+    }
 
     public Long getUserId() {
         return userId;

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.dao.WechatAuthDao">
+    <resultMap id="wechatAuthResultMap" type="com.java.entity.WechatAuth">
+        <id column="wechat_auth_id" property="wechatAuthId"/>
+        <result column="user_id" property="userId"/>
+        <result column="open_id" property="openId"/>
+        <result column="create_time" property="createTime"/>
+        <association property="personInfo" column="user_id" javaType="com.java.entity.PersonInfo">
+            <id column="user_id" property="userId"/>
+            <result column="s_name" property="sName"/>
+            <result column="birthday" property="birthday"/>
+            <result column="gender" property="gender"/>
+            <result column="phone" property="phone"/>
+            <result column="email" property="email"/>
+            <result column="profile_img" property="profileImg"/>
+            <result column="customer_flag" property="customerFlag"/>
+            <result column="shop_owner_flag" property="shopOwnerFlag"/>
+            <result column="admin_flag" property="adminFlag"/>
+            <result column="create_time" property="createTime"/>
+            <result column="last_edit_time" property="lastEditTime"/>
+            <result column="enable_status" property="enableStatus"/>
+
+        </association>
+    </resultMap>
+    <select id="queryWechatInfoByOpenId" resultMap="wechatAuthResultMap" parameterType="String">
+        select
+        w.wechat_auth_id,
+        w.user_id,
+        w.open_id,
+        w.create_time,
+        p.user_id,
+        p.s_name,
+        p.birthday,
+        p.gender,
+        p.phone,
+        p.email,
+        p.profile_img,
+        p.customer_flag,
+        p.shop_owner_flag,
+        p.admin_flag,
+        p.create_time,
+        p.last_edit_time,
+        p.enable_status
+        from
+        tb_wechat_auth w
+        left join
+        tb_person_info p
+        on w.user_id=p.user_id
+        where w.open_id=#{openId}
+    </select>
+
+    <delete id="deleteWechatAuth">
+        delete from
+        tb_wechat_auth
+        where
+        wechat_auth_id=#{wechatAuthId}
+    </delete>
+    <insert id="insertWechatAuth" parameterType="com.java.entity.WechatAuth" useGeneratedKeys="true"
+            keyProperty="wechatAuthId" keyColumn="wechat_auth_id">
+        insert into tb_wechat_auth (user_id,open_id,create_time) values (#{userId},#{openId},#{createTime});
+    </insert>
+
+</mapper>

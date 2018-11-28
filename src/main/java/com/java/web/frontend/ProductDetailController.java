@@ -4,6 +4,8 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.java.entity.PersonInfo;
 import com.java.entity.Product;
+import com.java.entity.ProductImg;
+import com.java.service.ProductImgService;
 import com.java.service.ProductService;
 import com.java.util.HttpServletRequestUtils;
 import com.java.util.QRCodeUtil;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,6 +32,9 @@ import java.util.Map;
 public class ProductDetailController {
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    protected ProductImgService productImgService;
 
     private static String URLPREFIX = "https://open.weixin.qq.com/connect/oauth2/authorize?"
             + "appid=wxd7f6c5b8899fba83&"
@@ -47,7 +53,10 @@ public class ProductDetailController {
 
         if (productId != -1) {
             product = productService.getProductById(productId);
+            List<ProductImg> productImgList=productImgService.getProductImgListByProductId(productId);
+            product.setProductImgList(productImgList);
             modelMap.put("product", product);
+//            modelMap.put("imgAddr",productImgList);
             modelMap.put("success", true);
 
         } else {

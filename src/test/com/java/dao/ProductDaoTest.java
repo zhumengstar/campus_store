@@ -7,6 +7,7 @@ import com.java.entity.ProductCategory;
 import com.java.entity.Shop;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -35,11 +36,12 @@ public class ProductDaoTest extends BaseTest {
     }
 
     @Test
+    @Transactional
     public void testUpdateProduct() throws Exception {
         Product product = new Product();
         ProductCategory productCategory = new ProductCategory();
         Shop shop = new Shop();
-        shop.setShopId(1L);
+        shop.setShopId(8L);
 //        productCategory.setProductCategoryId(53L);
         product.setProductId(1L);
         product.setShop(shop);

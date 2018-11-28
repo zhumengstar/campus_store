@@ -28,7 +28,7 @@ $(function () {
                         + '<p class="shop-desc">' + item.shopCategoryDesc + '</p>'
                         + '</div>'
                         + '<div class="shop-classify-img-warp">'
-                        + '<img class="shop-img" src="' + 'http://localhost:8080' + item.shopCategoryImg + '">'
+                        + '<img class="shop-img" src="'+ item.shopCategoryImg + '">'
                         + '</div>'
                         + '</div>';
                 });

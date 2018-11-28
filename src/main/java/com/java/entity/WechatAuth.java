@@ -4,7 +4,9 @@ import java.util.Date;
 
 public class WechatAuth {
 
-    private Long wechatAutoId;
+    private Long wechatAuthId;
+
+    private Long userId;
 
     private String openId;
 
@@ -12,12 +14,12 @@ public class WechatAuth {
 
     private PersonInfo personInfo;
 
-    public Long getWechatAutoId() {
-        return wechatAutoId;
+    public Long getWechatAuthId() {
+        return wechatAuthId;
     }
 
-    public void setWechatAutoId(Long wechatAutoId) {
-        this.wechatAutoId = wechatAutoId;
+    public void setWechatAuthId(Long wechatAuthId) {
+        this.wechatAuthId = wechatAuthId;
     }
 
     public String getOpenId() {
@@ -42,5 +44,13 @@ public class WechatAuth {
 
     public void setPersonInfo(PersonInfo personInfo) {
         this.personInfo = personInfo;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 }

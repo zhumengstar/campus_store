@@ -14,15 +14,14 @@ public class PathUtil {
         if (os.toLowerCase().startsWith("win")) {
             basePath = "D:/root";
         } else {
-            basePath = "/root";
+            basePath = "/Users/zgh/Desktop/images";
         }
         basePath = basePath.replace("/", seperator);
         return basePath;
     }
 
     public static String getShopImagePath(Long shopId) {
-        String imagePath = "/upload/item/shop/" + shopId + "/";
-
+        String imagePath = "/upload/images/item/shop/" + shopId + "/";
         return imagePath.replace("/", seperator);
     }
 }

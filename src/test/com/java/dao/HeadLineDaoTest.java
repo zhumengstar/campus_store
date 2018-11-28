@@ -21,7 +21,7 @@ public class HeadLineDaoTest extends BaseTest {
     @Test
     public void testQueryHeadLine(){
         List<HeadLine> headLineList=headLineDao.queryHeadLine(new HeadLine());
-        assertEquals(0,headLineList.size());
+        assertEquals(4,headLineList.size());
 
     }
 }

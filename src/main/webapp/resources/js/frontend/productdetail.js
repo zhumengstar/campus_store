@@ -1,7 +1,6 @@
 $(function () {
     var productId = getQueryString('productId');
-    var productUrl = '/frontend/listproductdetailpageinfo?productId='
-        + productId;
+    var productUrl = '/frontend/listproductdetailpageinfo?productId=' + productId;
     $.getJSON(productUrl, function (data) {
         if (data.success) {
             var product = data.product;
@@ -11,8 +10,7 @@ $(function () {
             $('#product-desc').text(product.productDesc);
             var imgListHtml = '';
             product.productImgList.map(function (item, index) {
-                imgListHtml += '<div><img src="'
-                    + item.imgAddr + '"/></div>';
+                imgListHtml += '<div><td align="center"><img src="' + item.imgAddr + '"/></td></div>';
             });
             // 生成购买商品的二维码供商家扫描
             imgListHtml += '<div><img src="/frontend/generateqrcode4product?productId=' + product.productId + '"/></div>';
