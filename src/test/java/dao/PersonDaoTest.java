@@ -17,15 +17,12 @@ public class PersonDaoTest extends BaseTest {
     @Autowired
     private PersonInfoDao personDao;
 
-    @Autowired
-    private AreaService areaService;
-
     @Test
     @Transactional
     public void test() {
         PersonInfo s = personDao.getPersonById(8L);
         System.out.println(s.getSName());
-        s = areaService.getPerson(8L);
+        s = personDao.getPersonById(8L);
         System.out.println(s.getSName());
     }
 
@@ -40,6 +37,7 @@ public class PersonDaoTest extends BaseTest {
         personInfo.setCreateTime(new Date());
         personInfo.setLastEditTime(new Date());
         personInfo.setEnableStatus(1);
+        personInfo.setAdminFlag(1L);
         int effectedNum = personDao.insertPersonInfo(personInfo);
         assertEquals(1, effectedNum);
 

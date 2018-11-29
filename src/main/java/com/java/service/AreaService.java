@@ -13,7 +13,4 @@ import java.util.List;
  **/
 public interface AreaService {
     List<Area> getAreaList();
-
-    PersonInfo getPerson(Long personId);
-
 }

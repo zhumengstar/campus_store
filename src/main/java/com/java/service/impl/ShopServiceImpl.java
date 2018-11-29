@@ -7,13 +7,12 @@ import com.java.entity.Shop;
 import com.java.enums.ShopStateEnum;
 import com.java.exceptions.ShopOperationExecetion;
 import com.java.service.ShopService;
-import com.java.util.ImageUtils;
+import com.java.util.img.ImageUtils;
 import com.java.util.PageCaculator;
-import com.java.util.PathUtil;
+import com.java.util.img.PathUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.InputStream;
 import java.util.Date;
 import java.util.List;
 

@@ -2,6 +2,9 @@ package com.java.service;
 
 import com.java.dto.WechatAuthExecution;
 import com.java.entity.WechatAuth;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
+import java.io.File;
 
 /**
  * @author:zhumeng
@@ -17,5 +20,5 @@ public interface WechatAuthService {
      */
     WechatAuth getWechatAuthByOpenId(String openId);
 
-    WechatAuthExecution regiest(WechatAuth wechatAuth)throws Exception;
+    WechatAuthExecution regiest(WechatAuth wechatAuth, File profileImg)throws Exception;
 }

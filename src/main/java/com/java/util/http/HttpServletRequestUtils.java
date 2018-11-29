@@ -1,8 +1,10 @@
-package com.java.util;
+package com.java.util.http;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * 获取session中数据
+ *
  * @author:zhumeng
  * @desc:
  **/

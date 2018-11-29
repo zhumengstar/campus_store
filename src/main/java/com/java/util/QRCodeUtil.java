@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 二维码工具类
+ */
 public class QRCodeUtil {
 	public static BitMatrix generateQRCodeStream(String url,
 			HttpServletResponse resp) {

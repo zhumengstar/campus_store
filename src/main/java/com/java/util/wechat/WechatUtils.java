@@ -1,10 +1,12 @@
-package com.java.util;
+package com.java.util.wechat;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.java.dto.UserAccessToken;
 import com.java.dto.WechatUser;
+import com.java.entity.PersonInfo;
+import com.java.util.MyX509TrustManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +18,9 @@ import java.io.*;
 import java.net.ConnectException;
 import java.net.URL;
 
+/**
+ * 微信工具类
+ */
 public class WechatUtils {
 
     private static Logger log = LoggerFactory.getLogger(WechatUtils.class);
@@ -159,5 +164,10 @@ public class WechatUtils {
             log.error("https request error:{}", e);
         }
         return buffer.toString();
+    }
+
+    public static PersonInfo getPersonInfoFromRequest(WechatUser user) {
+        PersonInfo personInfo = new PersonInfo();
+        return personInfo;
     }
 }

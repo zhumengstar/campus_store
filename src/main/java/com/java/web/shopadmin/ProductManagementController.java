@@ -11,7 +11,7 @@ import com.java.exceptions.ProductOperationException;
 import com.java.service.ProductCategoryService;
 import com.java.service.ProductService;
 import com.java.util.CodeUtils;
-import com.java.util.HttpServletRequestUtils;
+import com.java.util.http.HttpServletRequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

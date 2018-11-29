@@ -12,7 +12,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  **/
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration("src/main/resources")
-@ContextConfiguration({"classpath*:spring/spring-dao.xml", "classpath*:spring/spring-service.xml", "classpath*:spring/spring-web.xml"})
+@ContextConfiguration({"classpath*:spring/spring-dao.xml", "classpath*:spring/spring-service.xml", "classpath*:spring/spring-web.xml","classpath*:spring/spring-redis.xml"})
 public class BaseTest {
 
     @Test

@@ -1,6 +1,7 @@
-package com.java.util;
+package com.java.util.img;
 
 /**
+ * 路径处理类
  * @author:zhumeng
  * @desc:
  **/

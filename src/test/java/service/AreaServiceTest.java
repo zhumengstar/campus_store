@@ -22,7 +22,7 @@ public class AreaServiceTest  extends BaseTest {
         List<Area> areaList=areaService.getAreaList();
         logger.info(areaList.get(0).toString());
 
-        assertEquals("西邮", areaList.get(0).getAreaName());
+        assertEquals("东苑", areaList.get(0).getAreaName());
     }
 
 

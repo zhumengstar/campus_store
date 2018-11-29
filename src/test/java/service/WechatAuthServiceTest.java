@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.File;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -28,7 +29,7 @@ public class WechatAuthServiceTest extends BaseTest {
     public void testRegister()throws Exception{
         WechatAuth wechatAuth=new WechatAuth();
         PersonInfo personInfo=new PersonInfo();
-        String openId="hhy";
+        String openId="123";
         //给微信账号设置上用户信息，但不设置上用户Id
         //希望创建微信账号的时候自动创建用户信息
         personInfo.setCreateTime(new Date());
@@ -40,7 +41,11 @@ public class WechatAuthServiceTest extends BaseTest {
         wechatAuth.setPersonInfo(personInfo);
         wechatAuth.setOpenId(openId);
         wechatAuth.setCreateTime(new Date());
-        WechatAuthExecution wae=wechatService.regiest(wechatAuth);
+
+        File thumbnailFile = new File("/Users/zgh/Desktop/watermark.jpg");
+
+
+        WechatAuthExecution wae=wechatService.regiest(wechatAuth,thumbnailFile);
         assertEquals(WechatAuthStateEnum.SUCCESS.getState(),wae.getState());
         wechatAuth=wechatService.getWechatAuthByOpenId(openId);
         System.out.println(wechatAuth.getPersonInfo().getSName());

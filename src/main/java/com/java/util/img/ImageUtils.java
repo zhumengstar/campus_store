@@ -1,24 +1,22 @@
-package com.java.util;
+package com.java.util.img;
 
 import com.java.dto.ImageHolder;
 import com.java.enums.ShopStateEnum;
-import com.java.web.shopadmin.ShopManagementController;
-import com.sun.javafx.scene.shape.PathUtils;
+import com.java.util.FileUtils;
 import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 
 /**
+ * 图片处理类
  * @author:zhumeng
  * @desc:图片
  **/
@@ -103,16 +101,7 @@ public class ImageUtils {
      */
     public static void deleteFileOrPath(String storePath) {
         File fileOrPath = new File(PathUtil.getImgBasePath() + storePath);
-        if (fileOrPath.exists()) {
-            if (fileOrPath.isDirectory()) {
-                File file[] = fileOrPath.listFiles();
-                for (int i = 0; i < file.length; i++) {
-                    file[i].delete();
-                }
-
-            }
-            fileOrPath.delete();
-        }
+        FileUtils.deleteFile(fileOrPath);
     }
 
     public static void main(String[] args) throws IOException {

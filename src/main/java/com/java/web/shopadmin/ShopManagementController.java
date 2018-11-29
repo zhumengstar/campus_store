@@ -10,10 +10,11 @@ import com.java.entity.ShopCategory;
 import com.java.enums.ShopStateEnum;
 import com.java.exceptions.ShopOperationExecetion;
 import com.java.service.AreaService;
+import com.java.service.PersonInfoService;
 import com.java.service.ShopCategoryService;
 import com.java.service.ShopService;
 import com.java.util.CodeUtils;
-import com.java.util.HttpServletRequestUtils;
+import com.java.util.http.HttpServletRequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,9 @@ public class ShopManagementController {
     @Autowired
     private AreaService areaService;
 
+    @Autowired
+    private PersonInfoService personInfoService;
+
 
     @RequestMapping(value = "/getshopmanagementinfo", method = RequestMethod.GET)
     @ResponseBody
@@ -82,7 +86,7 @@ public class ShopManagementController {
     private Map<String, Object> getShopList(HttpServletRequest request) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         PersonInfo user = new PersonInfo();
-        user = areaService.getPerson(8L);
+        user = personInfoService.getPersonInfoById(8L);
         logger.error("==================" + user.getSName());
         request.getSession().setAttribute("user", user);
         user = (PersonInfo) request.getSession().getAttribute("user");

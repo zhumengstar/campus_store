@@ -7,7 +7,7 @@ import com.java.entity.Product;
 import com.java.entity.ProductImg;
 import com.java.service.ProductImgService;
 import com.java.service.ProductService;
-import com.java.util.HttpServletRequestUtils;
+import com.java.util.http.HttpServletRequestUtils;
 import com.java.util.QRCodeUtil;
 import com.java.util.ShortNetAddress;
 import org.springframework.beans.factory.annotation.Autowired;

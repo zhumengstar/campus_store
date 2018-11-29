@@ -7,7 +7,7 @@ import com.java.entity.Shop;
 import com.java.service.ProductCategoryService;
 import com.java.service.ProductService;
 import com.java.service.ShopService;
-import com.java.util.HttpServletRequestUtils;
+import com.java.util.http.HttpServletRequestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

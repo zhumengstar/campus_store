@@ -1,13 +1,15 @@
 package com.java.util;
 
 import com.google.code.kaptcha.Constants;
-import com.java.web.shopadmin.ShopManagementController;
+import com.java.util.http.HttpServletRequestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * 验证码验证
+ *
  * @author:zhumeng
  * @desc:
  **/

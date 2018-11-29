@@ -9,7 +9,6 @@ import com.java.entity.Shop;
 import com.java.enums.ProductStateEnum;
 import com.java.exceptions.ShopOperationExecetion;
 import com.java.service.ProductService;
-import com.java.util.ImageUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

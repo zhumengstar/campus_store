@@ -8,7 +8,7 @@ import com.java.entity.WechatAuth;
 import com.java.enums.WechatAuthStateEnum;
 import com.java.service.PersonInfoService;
 import com.java.service.WechatAuthService;
-import com.java.util.WechatUtils;
+import com.java.util.wechat.WechatUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 
 @Controller
@@ -82,7 +83,7 @@ public class WechatLoginController {
         // 没有的话这里可以自动创建上，直接实现微信与咱们网站的无缝对接。
         // ======todo end======
         if (auth == null) {
-            PersonInfo personInfo = WechatUtils.getUserInfo();
+            PersonInfo personInfo = WechatUtils.getPersonInfoFromRequest(user);
             auth = new WechatAuth();
             auth.setOpenId(openId);
             if (FRONTEND.equals(roleType)) {
@@ -91,7 +92,10 @@ public class WechatLoginController {
                 personInfo.setUserType(2);
             }
             auth.setPersonInfo(personInfo);
-            WechatAuthExecution we = wechatAuthService.regiest(auth);
+            File thumbnailFile = new File("/Users/zgh/Desktop/watermark.jpg");
+            //TODO getImg
+
+            WechatAuthExecution we = wechatAuthService.regiest(auth,thumbnailFile);
             if (we.getState() != WechatAuthStateEnum.SUCCESS.getState()) {
                 return null;
             } else {
@@ -101,12 +105,14 @@ public class WechatLoginController {
 
         }
         //若用户点击前端展示系统
-        if (FRONTEND.equals(roleType))
-            if (user != null) {
-                // 获取到微信验证的信息后返回到指定的路由（需要自己设定）
-                return "frontend/index";
-            } else {
-                return "shopadmin/shoplist";
-            }
+        if (FRONTEND.equals(roleType)) {
+            // 获取到微信验证的信息后返回到指定的路由（需要自己设定）
+            return "frontend/index";
+        } else {
+            return "shopadmin/shoplist";
+        }
+
+
     }
+
 }

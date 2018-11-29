@@ -57,7 +57,7 @@ public class ProductImgDaoTest extends BaseTest {
     public void testDeleteProductImgByProductId() throws Exception {
         Long productId = 1L;
         int effectedNum = productImgDao.deleteProductImgByProductId(productId);
-        assertEquals(2, effectedNum);
+        assertEquals(0, effectedNum);
 
     }
 
