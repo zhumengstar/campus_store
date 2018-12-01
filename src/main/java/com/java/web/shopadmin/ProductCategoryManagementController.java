@@ -1,7 +1,7 @@
 package com.java.web.shopadmin;
 
 import com.java.dto.ProductCategoryExecution;
-import com.java.dto.Result;
+import com.java.dto.other.Result;
 import com.java.entity.ProductCategory;
 import com.java.entity.Shop;
 import com.java.enums.ProductCategoryStateEnum;

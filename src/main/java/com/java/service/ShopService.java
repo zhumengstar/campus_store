@@ -1,11 +1,9 @@
 package com.java.service;
 
-import com.java.dto.ImageHolder;
+import com.java.dto.other.ImageHolder;
 import com.java.dto.ShopExecution;
 import com.java.entity.Shop;
 import com.java.exceptions.ShopOperationExecetion;
-
-import java.io.InputStream;
 
 /**
  * @author:zhumeng

@@ -3,6 +3,7 @@ package dao;
 import baseTest.BaseTest;
 import com.java.dao.AreaDao;
 import com.java.entity.Area;
+import com.java.service.CacheService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,6 +18,8 @@ import static org.junit.Assert.assertEquals;
 public class AreaDaoTest extends BaseTest {
     @Autowired
     private AreaDao areaDao;
+
+
 
     @Test
     public void testQueryArea() {

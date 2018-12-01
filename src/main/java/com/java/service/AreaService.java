@@ -12,5 +12,7 @@ import java.util.List;
  * @desc:
  **/
 public interface AreaService {
+    public static final String AREALISTKEY = "arealist";
+
     List<Area> getAreaList();
 }

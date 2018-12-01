@@ -2,7 +2,7 @@ package com.java.service.impl;
 
 import com.java.dao.PersonInfoDao;
 import com.java.dao.WechatAuthDao;
-import com.java.dto.ImageHolder;
+import com.java.dto.other.ImageHolder;
 import com.java.dto.WechatAuthExecution;
 import com.java.entity.PersonInfo;
 import com.java.entity.WechatAuth;
@@ -10,13 +10,13 @@ import com.java.enums.WechatAuthStateEnum;
 import com.java.exceptions.WechatAuthOperationException;
 import com.java.service.WechatAuthService;
 import com.java.util.FileUtils;
+import com.java.util.img.AddProfileImg;
 import com.java.util.img.ImageUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -59,11 +59,12 @@ public class WechatAuthServiceImpl implements WechatAuthService {
             wechatAuth.setCreateTime(new Date());
             //如果微信账号里夹带着用户信息并且用户ID为空，则认为该用户第一次使用平台（且通过微信登陆)）
             //则自动创建用户信息
-            if (wechatAuth.getPersonInfo() != null && wechatAuth.getPersonInfo().getUserId() == null) {
+            if (wechatAuth.getPersonInfo() != null && wechatAuth.getPersonInfo().getUserId() != null) {
 
                 if (profileImg != null) {
                     try {
-                        addProfileImg(wechatAuth, profileImg);
+                        PersonInfo personInfo=wechatAuth.getPersonInfo();
+                        AddProfileImg.addProfileImg(personInfo, profileImg);
                     } catch (Exception e) {
                         log.debug("addUserProfileImg error" + e.getMessage());
                         throw new RuntimeException("addUserProfileImg error" + e.getMessage());
@@ -71,14 +72,17 @@ public class WechatAuthServiceImpl implements WechatAuthService {
                 }
 
                 try {
+
+                    PersonInfo personInfo = wechatAuth.getPersonInfo();
+
                     wechatAuth.getPersonInfo().setCreateTime(new Date());
                     wechatAuth.getPersonInfo().setLastEditTime(new Date());
                     wechatAuth.getPersonInfo().setCustomerFlag(1L);
                     wechatAuth.getPersonInfo().setShopOwnerFlag(1L);
                     wechatAuth.getPersonInfo().setAdminFlag(1L);
                     wechatAuth.getPersonInfo().setEnableStatus(1);
+                    wechatAuth.getPersonInfo().setUserId(personInfo.getUserId());
 
-                    PersonInfo personInfo = wechatAuth.getPersonInfo();
 
                     int effectedNum = personInfoDao.insertPersonInfo(personInfo);
 
@@ -111,16 +115,4 @@ public class WechatAuthServiceImpl implements WechatAuthService {
 
     }
 
-    private void addProfileImg(WechatAuth wechatAuth, File profileImg) throws FileNotFoundException {
-
-        String desc = FileUtils.getPersonInfoImagePath();
-
-        InputStream is = new FileInputStream(profileImg);
-
-        ImageHolder imageHolder = new ImageHolder(profileImg.getName(), is);
-
-        String profileImgAddr = ImageUtils.generateThumbnail(imageHolder, desc);
-
-        wechatAuth.getPersonInfo().setProfileImg(profileImgAddr);
-    }
 }

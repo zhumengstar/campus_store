@@ -37,7 +37,6 @@ public class AreaServiceImpl implements AreaService {
     private final static Logger logger = LoggerFactory.getLogger(AreaServiceImpl.class);
 
 
-    private static String AREALISTKEY = "arealist";
 
     @Override
     @Transactional

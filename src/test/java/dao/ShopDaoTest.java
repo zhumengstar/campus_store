@@ -53,7 +53,6 @@ public class ShopDaoTest extends BaseTest {
 
 
     @Test
-    @Ignore
     @Transactional
     public void insertShop() {
         Shop shop = new Shop();
@@ -62,9 +61,9 @@ public class ShopDaoTest extends BaseTest {
         ShopCategory shopCategory = new ShopCategory();
 
 
-        owner.setUserId(1L);
-        area.setAreaId(2);
-        shopCategory.setShopCategoryId(1L);
+        owner.setUserId(8L);
+        area.setAreaId(4);
+        shopCategory.setShopCategoryId(10L);
 
 
         shop.setShopCategory(shopCategory);
@@ -91,7 +90,6 @@ public class ShopDaoTest extends BaseTest {
     }
 
     @Test
-    @Ignore
     @Transactional
     public void testUpdateShop() {
         Shop shop = new Shop();

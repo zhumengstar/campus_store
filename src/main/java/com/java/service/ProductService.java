@@ -1,9 +1,8 @@
 package com.java.service;
 
-import com.java.dto.ImageHolder;
+import com.java.dto.other.ImageHolder;
 import com.java.dto.ProductExecution;
 import com.java.entity.Product;
-import com.java.entity.ProductCategory;
 import com.java.exceptions.ProductOperationException;
 
 import java.util.List;

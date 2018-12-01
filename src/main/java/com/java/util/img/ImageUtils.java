@@ -1,6 +1,6 @@
 package com.java.util.img;
 
-import com.java.dto.ImageHolder;
+import com.java.dto.other.ImageHolder;
 import com.java.enums.ShopStateEnum;
 import com.java.util.FileUtils;
 import net.coobird.thumbnailator.Thumbnails;
@@ -104,13 +104,6 @@ public class ImageUtils {
         FileUtils.deleteFile(fileOrPath);
     }
 
-    public static void main(String[] args) throws IOException {
-
-        Thumbnails.of(new File("/Users/zgh/Desktop/IMG_0277.jpg"))
-                .size(200, 200).watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/IM62.jpg")), 0.25f)
-                .outputQuality(0.8f).toFile("/Users/zgh/Desktop/合成.jpg");
-    }
-
     /**
      * @param thumbnail
      * @param targetAddr
@@ -138,7 +131,13 @@ public class ImageUtils {
             logger.error(e.toString());
             throw new RuntimeException("创建缩略图失败：" + e.toString());
         }
-
         return relativeAddr;
+    }
+
+    public static void main(String[] args) throws IOException {
+        System.out.println(basePath);
+        Thumbnails.of(new File("/Users/zgh/Desktop/watermark.jpg"))
+                .size(200, 200).watermark(Positions.BOTTOM_RIGHT, ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25f)
+            .outputQuality(0.8f).toFile("/Users/zgh/Desktop/合成.jpg");
     }
 }

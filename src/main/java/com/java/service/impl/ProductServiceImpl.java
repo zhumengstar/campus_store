@@ -2,7 +2,7 @@ package com.java.service.impl;
 
 import com.java.dao.ProductDao;
 import com.java.dao.ProductImgDao;
-import com.java.dto.ImageHolder;
+import com.java.dto.other.ImageHolder;
 import com.java.dto.ProductExecution;
 import com.java.entity.Product;
 import com.java.entity.ProductImg;

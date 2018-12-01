@@ -8,6 +8,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,6 +21,7 @@ import static org.junit.Assert.assertEquals;
  * @desc:
  **/
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+@Transactional
 public class ProductCategoryDaoTest extends BaseTest {
     @Autowired
     private ProductCategoryDao productCategoryDao;
@@ -37,13 +39,13 @@ public class ProductCategoryDaoTest extends BaseTest {
         productCategory1.setProductCategoryName("商品类别1");
         productCategory1.setPriority(1);
         productCategory1.setCreateTime(new Date());
-        productCategory1.setShopId(61L);
+        productCategory1.setShopId(15L);
 
         ProductCategory productCategory2 = new ProductCategory();
         productCategory2.setProductCategoryName("商品类别2");
         productCategory2.setPriority(1);
         productCategory2.setCreateTime(new Date());
-        productCategory2.setShopId(61L);
+        productCategory2.setShopId(15L);
 
         List<ProductCategory> productCategoryList = new ArrayList<ProductCategory>();
 
@@ -55,9 +57,8 @@ public class ProductCategoryDaoTest extends BaseTest {
     }
 
     @Test
-    @Ignore
     public void testDeleteProductCategory() throws Exception {
-        Long shopId = 61L;
+        Long shopId = 15L;
         List<ProductCategory> productCategoryList = productCategoryDao.queryProductCategoryList(shopId);
         for (ProductCategory pc : productCategoryList) {
             if ("商品类别1".equals(pc.getProductCategoryName()) || "商品类别2".equals(pc.getProductCategoryName())) {

@@ -2,7 +2,7 @@ package service;
 
 import baseTest.BaseTest;
 import com.java.dao.ShopDao;
-import com.java.dto.ImageHolder;
+import com.java.dto.other.ImageHolder;
 import com.java.dto.ShopExecution;
 import com.java.entity.Area;
 import com.java.entity.PersonInfo;
@@ -11,7 +11,6 @@ import com.java.entity.ShopCategory;
 import com.java.enums.ShopStateEnum;
 import com.java.exceptions.ShopOperationExecetion;
 import com.java.service.ShopService;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -48,17 +47,16 @@ public class ShopServiceTest extends BaseTest {
     }
 
     @Test
-    @Ignore
     public void testAddShop() throws ShopOperationExecetion, FileNotFoundException {
         Shop shop = new Shop();
         PersonInfo owner = new PersonInfo();
         Area area = new Area();
         ShopCategory shopCategory = new ShopCategory();
 
-        owner.setUserId(1L);
-        area.setAreaId(2);
+        owner.setUserId(8L);
+        area.setAreaId(3);
 
-        shopCategory.setShopCategoryId(1L);
+        shopCategory.setShopCategoryId(10L);
         shop.setShopCategory(shopCategory);
         shop.setArea(area);
 
@@ -91,7 +89,7 @@ public class ShopServiceTest extends BaseTest {
     @Test
     public void testModifyShop() throws ShopOperationExecetion, FileNotFoundException {
         Shop shop = new Shop();
-        shop.setShopId(146L);
+        shop.setShopId(15L);
         shop.setShopName("yayaya");
         File shopImg = new File("/Users/zgh/Desktop/yan.jpg");
         InputStream is = new FileInputStream(shopImg);

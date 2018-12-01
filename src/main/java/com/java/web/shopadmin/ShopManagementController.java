@@ -1,7 +1,7 @@
 package com.java.web.shopadmin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.java.dto.ImageHolder;
+import com.java.dto.other.ImageHolder;
 import com.java.dto.ShopExecution;
 import com.java.entity.Area;
 import com.java.entity.PersonInfo;

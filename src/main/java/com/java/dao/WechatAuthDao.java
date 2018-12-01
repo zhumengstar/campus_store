@@ -1,6 +1,5 @@
 package com.java.dao;
 
-import com.java.dto.WechatUser;
 import com.java.entity.WechatAuth;
 
 /**

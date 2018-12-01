@@ -1,8 +1,8 @@
 package com.java.web.wechat;
 
-import com.java.dto.UserAccessToken;
+import com.java.dto.other.UserAccessToken;
 import com.java.dto.WechatAuthExecution;
-import com.java.dto.WechatUser;
+import com.java.dto.other.WechatUser;
 import com.java.entity.PersonInfo;
 import com.java.entity.WechatAuth;
 import com.java.enums.WechatAuthStateEnum;
@@ -25,6 +25,8 @@ import java.io.IOException;
 @RequestMapping("wechatlogin")
 /**
  * 获取关注公众号之后的微信用户信息的接口，如果在微信浏览器里访问
+ *
+ * https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx299e19661fcdf7d2&redirect_uri=http://39.105.67.70/o2o/wechatlogin/logincheck&role_type=1&response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect
  * https://open.weixin.qq.com/connect/oauth2/authorize?appid=您的appId&redirect_uri=http://o2o.yitiaojieinfo.com/o2o/wechatlogin/logincheck&role_type=1&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect
  * 则这里将会获取到code,之后再可以通过code获取到access_token 进而获取到用户信息
  *

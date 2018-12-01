@@ -1,7 +1,7 @@
 package com.java.service.impl;
 
 import com.java.dao.ShopDao;
-import com.java.dto.ImageHolder;
+import com.java.dto.other.ImageHolder;
 import com.java.dto.ShopExecution;
 import com.java.entity.Shop;
 import com.java.enums.ShopStateEnum;

@@ -1,7 +1,7 @@
 package service;
 
 import baseTest.BaseTest;
-import com.java.dto.ImageHolder;
+import com.java.dto.other.ImageHolder;
 import com.java.dto.ProductExecution;
 import com.java.entity.Product;
 import com.java.entity.ProductCategory;
@@ -35,9 +35,9 @@ public class ProductServiceTest extends BaseTest {
         //创建shopId为1且productCategoryId为1的商品实例并给其成员变量赋值
         Product product = new Product();
         Shop shop = new Shop();
-        shop.setShopId(61L);
+        shop.setShopId(15L);
         ProductCategory pc = new ProductCategory();
-        pc.setProductCategoryId(44L);
+        pc.setProductCategoryId(15L);
 
         product.setShop(shop);
         product.setProductCategory(pc);
@@ -71,12 +71,12 @@ public class ProductServiceTest extends BaseTest {
         //创建shopId为1且productCategoryId为1的商品实例并给其他成员变量赋值
         Product product = new Product();
         Shop shop = new Shop();
-        shop.setShopId(1L);
+        shop.setShopId(15L);
         ProductCategory pc = new ProductCategory();
-        pc.setProductCategoryId(1L);
+        pc.setProductCategoryId(9L);
 
         product.setShop(shop);
-        product.setProductId(1L);
+        product.setProductId(6L);
         product.setProductName("yaya");
         product.setProductDesc("yaya悦");
         product.setProductCategory(pc);

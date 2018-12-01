@@ -26,18 +26,20 @@ public class WechatAuthServiceTest extends BaseTest {
 
     @Transactional
     @Test
-    public void testRegister()throws Exception{
-        WechatAuth wechatAuth=new WechatAuth();
-        PersonInfo personInfo=new PersonInfo();
-        String openId="123";
+    public void testRegister() throws Exception {
+        WechatAuth wechatAuth = new WechatAuth();
+        PersonInfo personInfo = new PersonInfo();
+        String openId = "123";
         //给微信账号设置上用户信息，但不设置上用户Id
         //希望创建微信账号的时候自动创建用户信息
         personInfo.setCreateTime(new Date());
         personInfo.setSName("zgh");
         personInfo.setUserType(1);
         personInfo.setAdminFlag(1L);
+        personInfo.setUserId(8L);
 
-        wechatAuth.setUserId(personInfo.getUserId());
+//        wechatAuth.setUserId(8L);
+        //wechatAuth.setUserId(personInfo.getUserId());
         wechatAuth.setPersonInfo(personInfo);
         wechatAuth.setOpenId(openId);
         wechatAuth.setCreateTime(new Date());
@@ -45,9 +47,9 @@ public class WechatAuthServiceTest extends BaseTest {
         File thumbnailFile = new File("/Users/zgh/Desktop/watermark.jpg");
 
 
-        WechatAuthExecution wae=wechatService.regiest(wechatAuth,thumbnailFile);
-        assertEquals(WechatAuthStateEnum.SUCCESS.getState(),wae.getState());
-        wechatAuth=wechatService.getWechatAuthByOpenId(openId);
+        WechatAuthExecution wae = wechatService.regiest(wechatAuth, thumbnailFile);
+        assertEquals(WechatAuthStateEnum.SUCCESS.getState(), wae.getState());
+        wechatAuth = wechatService.getWechatAuthByOpenId(openId);
         System.out.println(wechatAuth.getPersonInfo().getSName());
 
     }

@@ -17,6 +17,7 @@ import static org.junit.Assert.assertEquals;
  * @author:zhumeng
  * @desc:
  **/
+@Transactional
 public class ProductDaoTest extends BaseTest {
     @Autowired
     private ProductDao productDao;
@@ -25,7 +26,7 @@ public class ProductDaoTest extends BaseTest {
     public void insertProductTest() {
         Product product = new Product();
         Shop shop = new Shop();
-        shop.setShopId(61L);
+        shop.setShopId(15L);
         product.setProductName("111");
         product.setShop(shop);
         product.setPriority(20);
@@ -41,7 +42,7 @@ public class ProductDaoTest extends BaseTest {
         Product product = new Product();
         ProductCategory productCategory = new ProductCategory();
         Shop shop = new Shop();
-        shop.setShopId(8L);
+        shop.setShopId(15L);
 //        productCategory.setProductCategoryId(53L);
         product.setProductId(1L);
         product.setShop(shop);
@@ -66,7 +67,7 @@ public class ProductDaoTest extends BaseTest {
         assertEquals(3, productList.size());
         //查询名称为yaya的商品数量
         int count = productDao.queryProductCount(productCondition);
-        assertEquals(13, count);
+        assertEquals(12, count);
 
 
         //使用商品模糊查询，预期返回两条结果

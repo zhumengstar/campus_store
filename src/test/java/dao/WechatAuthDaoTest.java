@@ -35,7 +35,7 @@ public class WechatAuthDaoTest extends BaseTest {
 
     @Test
     public void testQuertWechatAuthByopenId()throws Exception{
-        WechatAuth wechatAuth=wechatAuthDao.queryWechatInfoByOpenId("zgh");
+        WechatAuth wechatAuth=wechatAuthDao.queryWechatInfoByOpenId("ovLbns-gxJHqC-UTPQKvgEuENl-E");
         assertEquals("逐梦",wechatAuth.getPersonInfo().getSName());
     }
 }
