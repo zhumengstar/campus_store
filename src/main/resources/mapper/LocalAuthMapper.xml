@@ -5,7 +5,8 @@
 <mapper namespace="com.java.dao.LocalAuthDao">
     <resultMap id="localAuthResultMap" type="com.java.entity.LocalAuth">
         <id column="local_auth_id" property="localAuthId"/>
-        <result column="username" property="username"/>
+        <result column="user_name" property="userName"/>
+        <result column="user_id" property="userId"/>
         <result column="password" property="password"/>
         <result column="create_time" property="createTime"/>
         <result column="last_edit_time" property="lastEditTime"/>
@@ -25,6 +26,7 @@
         select
         l.local_auth_id,
         l.user_name,
+        l.user_id,
         l.password,
         l.create_time,
         l.last_edit_time,
@@ -48,6 +50,7 @@
         select
         l.local_auth_id,
         l.user_name,
+        l.user_id,
         l.password,
         l.create_time,
         l.last_edit_time,

@@ -18,7 +18,8 @@
         </header>
         <div class="content">
             <div class="content-block">
-                <p>你好,<span id="user-name"></span>
+                <p>你好,
+                    <span id="user-name"></span>
                     <a class="pull-right" href="/shopadmin/shopoperation">增加店铺</a>
                 </p>
                 <div class="row row-shop">
@@ -31,14 +32,16 @@
             </div>
             <div class="content-block">
                 <div class="row">
-                    <div class="col-50">
-                        <a href="/index" id="log-out"
-                           class="button button-big button-fill button-danger">退出系统
-                        </a>
+                    <div class="col-33">
+                        <a href="/local/accountbind?usertype=2" class="button button-big button-fill button-success">绑定账号</a>
                     </div>
-                    <div class="col-50">
-                        <a href="/shop/changepsw" class="button button-big button-fill button-success">修改密码</a>
+                    <div class="col-33">
+                        <a href="/" id="log-out" class="button button-big button-fill button-danger">退出系统</a>
                     </div>
+                    <div class="col-33">
+                        <a href="/local/changepsw?usertype=2" class="button button-big button-fill button-success">修改密码</a>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -47,5 +50,6 @@
         <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
         <script type='text/javascript' src='../resources/js/common/common.js' charset='utf-8'></script>
         <script type='text/javascript' src='../resources/js/shop/shoplist.js' charset='utf-8'></script>
+        <script type='text/javascript' src='../resources/js/local/logout.js' charset='utf-8'></script>
     </body>
 </html>

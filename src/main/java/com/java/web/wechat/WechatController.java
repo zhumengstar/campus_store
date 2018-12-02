@@ -30,12 +30,17 @@ public class WechatController {
         String nonce = request.getParameter("nonce");
         // 随机字符串
         String echostr = request.getParameter("echostr");
-
+        log.debug("weixin get..." + signature);
+        log.debug("weixin get..." + timestamp);
+        log.debug("weixin get..." + nonce);
+        log.debug("weixin get..." + echostr);
         // 通过检验signature对请求进行校验，若校验成功则原样返回echostr，表示接入成功，否则接入失败
         PrintWriter out = null;
         try {
+            log.debug("weixin get..." + echostr);
             out = response.getWriter();
             if (SignUtils.checkSignature(signature, timestamp, nonce)) {
+                log.debug("weixin get..." + echostr);
                 log.debug("weixin get success....");
                 out.print(echostr);
             }

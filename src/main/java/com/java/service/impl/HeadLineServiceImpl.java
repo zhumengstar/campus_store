@@ -14,6 +14,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 import java.awt.*;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -56,7 +57,7 @@ public class HeadLineServiceImpl implements HeadLineService {
         } else {
             //存在则从key中取数据
             String jsonString = jedisStrings.get(key);
-            JavaType javaType = mapper.getTypeFactory().constructParametricType(Array.class, HeadLine.class);
+            JavaType javaType = mapper.getTypeFactory().constructParametricType(ArrayList.class, HeadLine.class);
             headLineList = mapper.readValue(jsonString, javaType);
         }
         return headLineList;

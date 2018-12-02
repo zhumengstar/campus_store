@@ -82,9 +82,14 @@ public class LocalAuthController {
         String username = HttpServletRequestUtils.getString(request, "username");
         String password = HttpServletRequestUtils.getString(request, "password");
 
-        String newpassword = HttpServletRequestUtils.getString(request, "newpassword");
+        String newpassword = HttpServletRequestUtils.getString(request, "newPassword");
 
-        PersonInfo user = (PersonInfo) request.getSession().getAttribute("user");
+//        PersonInfo user = (PersonInfo) request.getSession().getAttribute("user");
+
+        PersonInfo user=new PersonInfo();
+        user.setUserId(11L);
+
+
 
         if (user != null && username != null && password != null && newpassword != null && user.getUserId() != null) {
             try {
@@ -116,47 +121,46 @@ public class LocalAuthController {
     }
 
 
-
     @ResponseBody
-    @RequestMapping(value = "logincheck",method = POST)
-    public Map<String,Object> logincheck(HttpServletRequest request){
-        Map<String,Object> modelMap=new HashMap<>();
+    @RequestMapping(value = "logincheck", method = POST)
+    public Map<String, Object> logincheck(HttpServletRequest request) {
+        Map<String, Object> modelMap = new HashMap<>();
 
-        boolean needVerify=HttpServletRequestUtils.getBollean(request,"needVerify");
+        boolean needVerify = HttpServletRequestUtils.getBollean(request, "needVerify");
 
-        if(needVerify&&!CodeUtils.checkVerifyCode(request)){
-            modelMap.put("success",false);
-            modelMap.put("errMsg","输入了错误的验证码");
+        if (needVerify && !CodeUtils.checkVerifyCode(request)) {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "输入了错误的验证码");
             return modelMap;
         }
 
-        String username=HttpServletRequestUtils.getString(request,"username");
+        String username = HttpServletRequestUtils.getString(request, "username");
 
-        String password=HttpServletRequestUtils.getString(request,"password");
+        String password = HttpServletRequestUtils.getString(request, "password");
 
-        if(username!=null&&password!=null){
-            LocalAuth localAuth=localAuthService.getLocalAuthByUserNameAndPwd(username,password);
-            if(localAuth!=null){
-                modelMap.put("success",true);
-                request.getSession().setAttribute("user",localAuth.getPersonInfo());
-            }else {
-                modelMap.put("success",false);
-                modelMap.put("errMsg","用户名或密码错误");
+        if (username != null && password != null) {
+            LocalAuth localAuth = localAuthService.getLocalAuthByUserNameAndPwd(username, password);
+            if (localAuth != null) {
+                modelMap.put("success", true);
+                request.getSession().setAttribute("user", localAuth.getPersonInfo());
+            } else {
+                modelMap.put("success", false);
+                modelMap.put("errMsg", "用户名或密码错误");
             }
-        }else {
-            modelMap.put("success",false);
-            modelMap.put("errMsg","用户名和密码均不能为空");
+        } else {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "用户名和密码均不能为空");
 
         }
         return modelMap;
     }
 
     @ResponseBody
-    @RequestMapping(value = "/logout",method = POST)
-    public Map<String,Object> logout(HttpServletRequest request){
-        Map<String,Object> modelMap=new HashMap<>();
-        request.getSession().setAttribute("user",null);
-        modelMap.put("success",true);
+    @RequestMapping(value = "/logout", method = POST)
+    public Map<String, Object> logout(HttpServletRequest request) {
+        Map<String, Object> modelMap = new HashMap<>();
+        request.getSession().setAttribute("user", null);
+        modelMap.put("success", true);
         return modelMap;
     }
 

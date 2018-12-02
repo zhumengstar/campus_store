@@ -85,8 +85,7 @@ public class ShopManagementController {
     @ResponseBody
     private Map<String, Object> getShopList(HttpServletRequest request) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
-        PersonInfo user = new PersonInfo();
-        user = personInfoService.getPersonInfoById(8L);
+        PersonInfo user = (PersonInfo) request.getSession().getAttribute("user");
         logger.error("==================" + user.getSName());
         request.getSession().setAttribute("user", user);
         user = (PersonInfo) request.getSession().getAttribute("user");
@@ -94,6 +93,9 @@ public class ShopManagementController {
             Shop shopCondition = new Shop();
             shopCondition.setOwner(user);
             ShopExecution se = shopService.getShopList(shopCondition, 0, 100);
+
+            request.getSession().setAttribute("shoplist",se.getShopList());
+
             modelMap.put("shopList", se.getShopList());
             modelMap.put("user", user);
             modelMap.put("success", true);
@@ -229,7 +231,7 @@ public class ShopManagementController {
                     @SuppressWarnings("unchecked")
                     List<Shop> shopList = (List<Shop>) request.getSession().getAttribute("shopList");
                     if (shopList == null || shopList.size() == 0) {
-                        shopList = new ArrayList<>();
+                        shopList = new ArrayList<Shop>();
                     }
                     shopList.add(se.getShop());
                     request.getSession().setAttribute("shopList", shopList);

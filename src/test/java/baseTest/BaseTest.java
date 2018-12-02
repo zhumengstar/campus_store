@@ -12,9 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
  * @desc:
  **/
 @RunWith(SpringJUnit4ClassRunner.class)
-//@Transactional
+@Transactional
 @WebAppConfiguration("src/main/resources")
-@ContextConfiguration({"classpath*:spring/spring-dao.xml", "classpath*:spring/spring-service.xml", "classpath*:spring/spring-web.xml","classpath*:spring/spring-redis.xml"})
+@ContextConfiguration({"classpath*:spring/spring-dao.xml", "classpath*:spring/spring-service.xml", "classpath*:spring/spring-web.xml", "classpath*:spring/spring-redis.xml"})
 public class BaseTest {
 
     @Test

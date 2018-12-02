@@ -8,7 +8,7 @@ $(function () {
         var password = $('#password').val();
         var newPassword = $('#newPassword').val();
         var confirmPassword = $('#confirmPassword').val();
-        if(newPassword != confirmPassword) {
+        if (newPassword != confirmPassword) {
             $.toast('两次输入的新密码不一致!');
             return;
         }
@@ -19,7 +19,7 @@ $(function () {
         formData.append("newPassword", newPassword);
 
         var verifyCodeActual = $('#j_captcha').val();
-        if(!verifyCodeActual) {
+        if (!verifyCodeActual) {
             $.toast('请输入验证码!');
             return;
         }
@@ -35,6 +35,7 @@ $(function () {
             success: function (data) {
                 if (data.success) {
                     $.toast("提交成功!");
+                    // if (usertype == 1) {
                     if (usertype == 1) {
                         window.location.href = '/frontend/index';
                     } else {
@@ -51,4 +52,4 @@ $(function () {
     $('#back').click(function () {
         window.location.href = '/shopadmin/shoplist';
     })
-})
+});

@@ -4,6 +4,7 @@ import baseTest.BaseTest;
 import com.java.dao.LocalAuthDao;
 import com.java.entity.LocalAuth;
 import com.java.entity.PersonInfo;
+import com.java.util.MD5.MD5;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -22,7 +23,7 @@ public class LocalAuthDaoTest extends BaseTest {
     @Autowired
     private LocalAuthDao localAuthDao;
     private static final String username = "yaya";
-    private static final String password = "s05bse6q2qlb9qblls96s592y55y556s";
+    private static final String password = "newpass";
 
     @Test
     public void testInsertLocalAuth() throws Exception {
@@ -48,13 +49,13 @@ public class LocalAuthDaoTest extends BaseTest {
 
     @Test
     public void testQueryLocalByUserId()throws Exception{
-        LocalAuth localAuth=localAuthDao.queryLocalByUserId(8L);
-        assertEquals("逐梦",localAuth.getPersonInfo().getSName());
+        LocalAuth localAuth=localAuthDao.queryLocalByUserId(11L);
+        assertEquals("音策",localAuth.getPersonInfo().getSName());
     }
 
     @Test
     public void testUpdateLocalAuth()throws Exception{
-        int effectedNum=localAuthDao.updateLocalAuth(8L,username,password,"newpass",new Date());
+        int effectedNum=localAuthDao.updateLocalAuth(8L,username,password, MD5.getMd5("newpass"),new Date());
         assertEquals(1,effectedNum);
 
     }

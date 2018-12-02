@@ -97,7 +97,7 @@ public class WechatLoginController {
             File thumbnailFile = new File("/Users/zgh/Desktop/watermark.jpg");
             //TODO getImg
 
-            WechatAuthExecution we = wechatAuthService.regiest(auth,thumbnailFile);
+            WechatAuthExecution we = wechatAuthService.regiest(auth, thumbnailFile);
             if (we.getState() != WechatAuthStateEnum.SUCCESS.getState()) {
                 return null;
             } else {
@@ -106,7 +106,8 @@ public class WechatLoginController {
             }
 
         }
-        //若用户点击前端展示系统
+
+//        若用户点击前端展示系统
         if (FRONTEND.equals(roleType)) {
             // 获取到微信验证的信息后返回到指定的路由（需要自己设定）
             return "frontend/index";

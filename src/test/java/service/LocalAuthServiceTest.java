@@ -53,7 +53,7 @@ public class LocalAuthServiceTest extends BaseTest {
         Long userId=11L;
         String username="yayaer";
         String password="1";
-        String newpassword="java";
+        String newpassword="javas";
 
         LocalAuthExecution lea=localAuthService.modifyLocalAuth(userId,username,password,newpassword,new Date());
 
