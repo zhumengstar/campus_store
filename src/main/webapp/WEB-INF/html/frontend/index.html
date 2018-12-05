@@ -23,7 +23,7 @@
                     <a href="javascript:history.go(-1)">
                         <span class="icon icon-left"></span>返回
                     </a>
-                    <h1 class="title">My School O2O</h1>
+                    <h1 class="title">我的盒子</h1>
                 </header>
                 <nav class="bar bar-tab">
                     <a class="tab-item active" href="#">
@@ -73,20 +73,40 @@
             <div class="panel-overlay"></div>
             <div class="panel panel-right panel-reveal" id="panel-left-demo">
                 <div class="content-block">
-                    <p><a href="/local/accountbind?usertype=1" class="close-panel">绑定账号</a></p>
-                    <p><a href="/local/changepsw?usertype=1" class="close-panel">修改密码</a></p>
-                    <p><a href="/frontend/myrecord" class="close-panel">消费记录</a></p>
-                    <p><a href="/frontend/mypoint" class="close-panel">我的积分</a></p>
-                    <p><a href="/frontend/pointrecord" class="close-panel">积分兑换记录</a></p>
-                    <!-- Click on link with "close-panel" class will close panel -->
+                    <p>
+                        <a href="/local/login" class="close-panel no-user">登录账号</a>
+                    </p>
+                    <p>
+                        <a href="/local/registerlocal" class="close-panel no-user">注册账号</a>
+                    </p>
+
+                    <!--若未登录账户则隐藏-店铺相关-->
+                    <p>
+                        <a href="/shopadmin/shopoperation" class="close-panel user">注册店铺</a>
+                    </p>
+                    <p>
+                        <a href="/shopadmin/shoplist" class="close-panel user shop">进入店铺管理界面</a>
+                    </p>
+                    <!--若未登录账户则隐藏-个人信息相关-->
+                    <p>
+                        <a href="/local/personInfo" class="close-panel user">个人信息</a>
+                    </p>
+                    <p>
+                        <a href="/local/changeinfo" class="close-panel user">修改个人信息</a>
+                    </p>
+                    <p>
+                        <a href="/local/changepsw" class="close-panel user">修改密码</a>
+                    </p>
+                    <a href="#" class="log-out user" id="log-out">登出</a>
                 </div>
             </div>
         </div>
-
-
         <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
         <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
         <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+        <script type='text/javascript' src='../resources/js/common/common.js' charset='utf-8'></script>
+        <script type='text/javascript' src='../resources/js/common/session.js' charset='utf-8'></script>
         <script type='text/javascript' src='../resources/js/frontend/index.js' charset='utf-8'></script>
+        <script type='text/javascript' src='../resources/js/local/logout.js' charset='utf-8'></script>
     </body>
 </html>

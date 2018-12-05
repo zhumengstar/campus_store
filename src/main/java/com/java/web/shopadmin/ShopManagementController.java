@@ -87,8 +87,6 @@ public class ShopManagementController {
         Map<String, Object> modelMap = new HashMap<String, Object>();
         PersonInfo user = (PersonInfo) request.getSession().getAttribute("user");
         logger.error("==================" + user.getSName());
-        request.getSession().setAttribute("user", user);
-        user = (PersonInfo) request.getSession().getAttribute("user");
         try {
             Shop shopCondition = new Shop();
             shopCondition.setOwner(user);
@@ -287,7 +285,6 @@ public class ShopManagementController {
         }
         //获取前端传来的文件流,将其接收到shopImg
         CommonsMultipartFile shopImg = null;
-
         CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
         if (commonsMultipartResolver.isMultipart(request)) {
             MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;

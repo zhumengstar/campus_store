@@ -1,21 +1,22 @@
 package com.java.enums;
 
-import com.java.entity.WechatAuth;
-
 /**
  * @author:zhumeng
  * @desc:
  **/
 public enum WechatAuthStateEnum {
-    LOGINFAIL(-1,"openId输入有误"),SUCCESS(0,"操作成功"),NULL_AUTH_INFO(-1006,"注册信息为空");
+    LOGIN_FAIL(-1, "openId输入有误"),
+    REGISTER_FAIL(-2, "注册失败"),
+    SUCCESS(0, "操作成功"),
+    NULL_AUTH_INFO(-1006, "注册信息为空");
 
     private int state;
 
     private String stateInfo;
 
-    private WechatAuthStateEnum(int state,String stateInfo){
-        this.state=state;
-        this.stateInfo=stateInfo;
+    WechatAuthStateEnum(int state, String stateInfo) {
+        this.state = state;
+        this.stateInfo = stateInfo;
     }
 
     public int getState() {

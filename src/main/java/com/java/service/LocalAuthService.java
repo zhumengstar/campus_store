@@ -1,6 +1,7 @@
 package com.java.service;
 
 import com.java.dto.LocalAuthExecution;
+import com.java.dto.other.ImageHolder;
 import com.java.entity.LocalAuth;
 import com.java.exceptions.LocalAuthOperationException;
 
@@ -50,5 +51,5 @@ public interface LocalAuthService {
      */
     LocalAuthExecution modifyLocalAuth(Long userId, String username, String password, String newpassword, Date lastEditTime) throws LocalAuthOperationException;
 
-    LocalAuthExecution regiest(LocalAuth localAuth, File profileImg) throws LocalAuthOperationException;
+    LocalAuthExecution register(LocalAuth localAuth, ImageHolder thumbnail) throws LocalAuthOperationException;
 }

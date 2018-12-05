@@ -14,14 +14,10 @@ import java.io.InputStream;
  * @desc:
  **/
 public class AddProfileImg {
-    public static void addProfileImg(PersonInfo personInfo, File profileImg) throws FileNotFoundException {
+    public static void addProfileImg(PersonInfo personInfo, ImageHolder profileImg) throws FileNotFoundException {
         String desc = FileUtils.getPersonInfoImagePath();
 
-        InputStream is = new FileInputStream(profileImg);
-
-        ImageHolder imageHolder = new ImageHolder(profileImg.getName(), is);
-
-        String profileImgAddr = ImageUtils.generateThumbnail(imageHolder, desc);
+        String profileImgAddr = ImageUtils.generateThumbnail(profileImg, desc);
 
         personInfo.setProfileImg(profileImgAddr);
     }

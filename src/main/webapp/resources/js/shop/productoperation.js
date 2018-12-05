@@ -138,6 +138,8 @@ $(function () {
                     if(data.success){
                         $.toast('提交成功！');
                         $('#captcha_img').click();
+                        window.location.href="/shopadmin/productmanagement";
+
                     }else {
                         $.toast('提交失败！');
                         $('#captcha_img').click();

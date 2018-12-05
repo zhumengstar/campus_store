@@ -24,12 +24,11 @@
         user_id=#{personId}
     </select>
 
-    <insert id="insertPersonInfo" parameterType="com.java.entity.PersonInfo" useGeneratedKeys="true" keyColumn="userId"
-            keyProperty="user_id">
+    <insert id="insertPersonInfo" parameterType="com.java.entity.PersonInfo" useGeneratedKeys="true" keyColumn="user_id"
+            keyProperty="userId">
         insert into tb_person_info (s_name,gender,email,profile_img,admin_flag,create_time,last_edit_time,enable_status) values (
           #{sName},#{gender},#{email},#{profileImg},#{adminFlag},#{createTime},#{lastEditTime},#{enableStatus}
         );
-
     </insert>
 
 

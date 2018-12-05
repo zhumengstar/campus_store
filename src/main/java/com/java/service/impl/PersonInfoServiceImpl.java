@@ -21,4 +21,11 @@ public class PersonInfoServiceImpl implements PersonInfoService {
     public PersonInfo getPersonInfoById(Long userId) {
         return personInfoDao.getPersonById(userId);
     }
+
+    @Override
+    public int insertPersonInfo(PersonInfo personInfo) {
+        return personInfoDao.insertPersonInfo(personInfo);
+    }
+
+
 }

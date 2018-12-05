@@ -9,7 +9,7 @@ $(function () {
                 headLineList.map(function (item, index) {
                     swiperHtml += ''
                         + '<div class="swiper-slide img-wrap">'
-                        + '<img class="banner-img" src="' + item.lineImg + '"alt="' + item.lineName + '">'
+                        + '<img class="banner-img" src="' + item.lineImg + '"alt="' + item.lineName + '"/>'
                         + '</div>';
 
                 });
@@ -28,7 +28,7 @@ $(function () {
                         + '<p class="shop-desc">' + item.shopCategoryDesc + '</p>'
                         + '</div>'
                         + '<div class="shop-classify-img-warp">'
-                        + '<img class="shop-img" src="'+ item.shopCategoryImg + '">'
+                        + '<img class="shop-img" src="' + item.shopCategoryImg + '">'
                         + '</div>'
                         + '</div>';
                 });
@@ -36,7 +36,6 @@ $(function () {
 
             }
         });
-
     $('#me').click(function () {
         $.openPanel('#panel-left-demo');
     });
@@ -46,4 +45,6 @@ $(function () {
         var newUrl = '/frontend/shoplist?parentId=' + shopCategoryId;
         window.location.href = newUrl;
     });
+
+
 });

@@ -14,4 +14,11 @@ public interface PersonInfoService {
      * @return
      */
     PersonInfo getPersonInfoById(Long personInfoId);
+
+    /**
+     *
+     * @param personInfo
+     * @return
+     */
+    int insertPersonInfo(PersonInfo personInfo);
 }

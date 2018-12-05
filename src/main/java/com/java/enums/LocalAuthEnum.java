@@ -2,10 +2,13 @@ package com.java.enums;
 
 public enum LocalAuthEnum {
 
-    SUCCESS(1, "创建成功"),
-    INNER_ERROR(-1001, "操作失败"),
-    ONLY_ONE_ACCOUNT(2, "已经绑定账号"),
-    NULL_AUTH_INFO(-1003, "账号信息不完整");
+    LOGIN_FAIL(-1, "密码或帐号输入有误"),
+    SUCCESS(0, "操作成功"),
+    ONLY_ONE_LOCAL_AUTH(-1005, "该账号名已经被注册了哦~"),
+    NULL_AUTH_INFO(-1006, "信息不能为空哦~"),
+    ONLY_ONE_ACCOUNT(-1007, "您已经有本地帐号了"),
+    NULL_IMG(-1008, "请上传用户头像"),
+    CREATE_PERSON_FAIL(-1009, "创建用户失败");
 
     private int state;
 
@@ -32,5 +35,4 @@ public enum LocalAuthEnum {
         }
         return null;
     }
-
 }

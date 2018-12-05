@@ -34,10 +34,10 @@ public class WechatUtils {
      */
     public static UserAccessToken getUserAccessToken(String code) throws IOException {
         // 测试号信息里的appId
-        String appId = "您的appId";
+        String appId = "wx0241d9560c5e1bec";
         log.debug("appId:" + appId);
         // 测试号信息里的appsecret
-        String appsecret = "您的appsecret";
+        String appsecret = "70cb4dd73873d0894b291329ee60c015";
         log.debug("secret:" + appsecret);
         // 根据传入的code,拼接出访问微信定义好的接口的URL
         String url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=" + appId + "&secret=" + appsecret
@@ -165,9 +165,12 @@ public class WechatUtils {
         }
         return buffer.toString();
     }
-
     public static PersonInfo getPersonInfoFromRequest(WechatUser user) {
         PersonInfo personInfo = new PersonInfo();
+        personInfo.setSName(user.getNickName());
+        personInfo.setGender(user.getSex() + "");
+        personInfo.setProfileImg(user.getHeadimgurl());
+        personInfo.setEnableStatus(1);
         return personInfo;
     }
 }

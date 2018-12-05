@@ -50,6 +50,8 @@
             <bean id="ShopInterceptor" class="com.java.interceptor.ShopLoginInterceptor"/>
         </mvc:interceptor>
         <!-- 校验是否对该店铺有操作权限的拦截器 -->
+
+
         <mvc:interceptor>
             <mvc:mapping path="/shopadmin/**"/>
             <!-- shoplist page -->

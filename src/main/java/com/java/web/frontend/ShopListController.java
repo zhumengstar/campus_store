@@ -56,15 +56,12 @@ public class ShopListController {
                 modelMap.put("success", false);
                 modelMap.put("errMsg", e.getMessage());
             }
-
         } else {
             try {
                 shopCategoryList = shopCategoryService.getShopCategoryList(null);
-
             } catch (Exception e) {
                 modelMap.put("success", false);
                 modelMap.put("errMsg", e.getMessage());
-
             }
         }
         modelMap.put("shopCategoryList", shopCategoryList);

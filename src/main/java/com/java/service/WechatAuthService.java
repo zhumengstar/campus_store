@@ -20,5 +20,5 @@ public interface WechatAuthService {
      */
     WechatAuth getWechatAuthByOpenId(String openId);
 
-    WechatAuthExecution regiest(WechatAuth wechatAuth, File profileImg)throws Exception;
+    WechatAuthExecution register(WechatAuth wechatAuth)throws Exception;
 }

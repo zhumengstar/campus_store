@@ -10,7 +10,7 @@ $(function () {
             $('#product-desc').text(product.productDesc);
             var imgListHtml = '';
             product.productImgList.map(function (item, index) {
-                imgListHtml += '<div><td align="center"><img src="' + item.imgAddr + '"/></td></div>';
+                imgListHtml += '<div><td align="center"><img src="' + item.imgAddr + '"width="100%"/></td></div>';
             });
             // 生成购买商品的二维码供商家扫描
             imgListHtml += '<div><img src="/frontend/generateqrcode4product?productId=' + product.productId + '"/></div>';

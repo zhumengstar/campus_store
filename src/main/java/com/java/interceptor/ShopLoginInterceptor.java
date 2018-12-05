@@ -1,13 +1,11 @@
 package com.java.interceptor;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.java.entity.PersonInfo;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
-import java.util.logging.Handler;
 
 /**
  * @author:zhumeng
@@ -33,7 +31,7 @@ public class ShopLoginInterceptor extends HandlerInterceptorAdapter {
         PrintWriter out = response.getWriter();
         out.println("<html>");
         out.println("<script>");
-        out.println("window.open('" + request.getContextPath() + "/local/login?usertype=2','_self')");
+        out.println("window.open('" + request.getContextPath() + "/local/login','_self')");
         out.println("</script>");
         out.println("</html>");
         return false;

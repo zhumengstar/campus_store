@@ -45,6 +45,7 @@ public class WechatController {
                 out.print(echostr);
             }
         } catch (IOException e) {
+            log.debug("weixin get false...." + e.toString());
             e.printStackTrace();
         } finally {
             if (out != null)

@@ -87,8 +87,10 @@ public class ShortNetAddress {
 			connection.getOutputStream().write(("url=" + postData).getBytes());
 			connection.connect();
 			String responseStr = getResponseStr(connection);
+
 			log.info("response string: " + responseStr);
 			tinyUrl = getValueByKey_JSON(responseStr, "tinyurl");
+
 			log.info("tinyurl: " + tinyUrl);
 			connection.disconnect();
 		} catch (IOException e) {
@@ -104,6 +106,6 @@ public class ShortNetAddress {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		getShortURL("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2c605206217d88b5&redirect_uri=http://115.28.159.6/cityrun/wechatlogin.action&role_type=1&response_type=code&scope=snsapi_userinfo&state=STATE123qweasd#wechat_redirect");
+		getShortURL("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx0241d9560c5e1bec&redirect_uri=http://47.93.8.183/wechatlogin/logincheck&role_type=1&response_type=code&scope=snsapi_userinfo&state=1&connect_redirect=1#wechat_redirect");
 	}
 }

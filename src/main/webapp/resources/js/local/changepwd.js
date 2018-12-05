@@ -1,8 +1,6 @@
 $(function () {
     //修改平台密码的controller url
     var url = '/local/changelocalpwd';
-    //从地址栏的URL里获取usertype
-    var usertype = getQueryString('usertype');
     $('#submit').click(function () {
         var username = $('#username').val();
         var password = $('#password').val();
@@ -35,14 +33,10 @@ $(function () {
             success: function (data) {
                 if (data.success) {
                     $.toast("提交成功!");
-                    // if (usertype == 1) {
-                    if (usertype == 1) {
-                        window.location.href = '/frontend/index';
-                    } else {
-                        window.location.href = '/shopadmin/shoplist';
-                    }
+                    window.location.href = '/frontend/index';
                 } else {
                     $.toast("提交失败!" + data.errMsg);
+                    console.info(data.errMsg);
                     $('#captcha_img').click();
                 }
             }

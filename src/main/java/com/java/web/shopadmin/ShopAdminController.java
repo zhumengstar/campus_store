@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping(value = "/shopadmin", method = {RequestMethod.GET})
 public class ShopAdminController {
 
+
+
     @RequestMapping(value = "/shopoperation")
     public String shopOperation() {
         //转发至店铺注册或者编辑界面

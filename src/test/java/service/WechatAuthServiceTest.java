@@ -44,10 +44,9 @@ public class WechatAuthServiceTest extends BaseTest {
         wechatAuth.setOpenId(openId);
         wechatAuth.setCreateTime(new Date());
 
-        File thumbnailFile = new File("/Users/zgh/Desktop/watermark.jpg");
 
 
-        WechatAuthExecution wae = wechatService.regiest(wechatAuth, thumbnailFile);
+        WechatAuthExecution wae = wechatService.register(wechatAuth);
         assertEquals(WechatAuthStateEnum.SUCCESS.getState(), wae.getState());
         wechatAuth = wechatService.getWechatAuthByOpenId(openId);
         System.out.println(wechatAuth.getPersonInfo().getSName());

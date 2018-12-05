@@ -19,7 +19,7 @@ public interface ShopService {
      * @param pageSize
      * @return
      */
-    public ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize);
+    ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize);
 
     /**
      * 通过Id查询店铺
