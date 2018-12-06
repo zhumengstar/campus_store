@@ -3,6 +3,7 @@ package com.java.web.shopadmin;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.java.dto.other.ImageHolder;
 import com.java.dto.ProductExecution;
+import com.java.entity.PersonInfo;
 import com.java.entity.Product;
 import com.java.entity.ProductCategory;
 import com.java.entity.Shop;
@@ -149,14 +150,22 @@ public class ProductManagementController {
     }
 
 
+    //搜索
     @RequestMapping(value = "/getproductbyid", method = RequestMethod.GET)
     @ResponseBody
-    public Map<String, Object> getProductById(@RequestParam Long productId) {
+    public Map<String, Object> getProductById(HttpServletRequest request, @RequestParam Long productId) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
+        Shop currentShop=(Shop) request.getSession().getAttribute("currentShop");
         //判断非空
         if (productId >= 1) {
             //获取商品信息
             Product product = productService.getProductById(productId);
+            if(product.getShopId()!=currentShop.getShopId()){
+                modelMap.put("success", false);
+                modelMap.put("errMsg", "empty productId");
+                return modelMap;
+            }
+//            request.getSession().setAttribute("product", product);
             //获取该店铺下的商品，类别列表
             List<ProductCategory> productCategoryList = productCategoryService.getProductCategoryList(product.getShop().getShopId());
             modelMap.put("product", product);
@@ -165,7 +174,6 @@ public class ProductManagementController {
         } else {
             modelMap.put("success", false);
             modelMap.put("errMsg", "empty productId");
-
         }
         return modelMap;
     }
@@ -218,10 +226,6 @@ public class ProductManagementController {
 
             try {
                 //从session中获取当前店铺的id并赋值给product，减少对前端数据对依赖
-                //TODO
-//                Shop s=new Shop();
-//                s.setShopId(1L);
-//                request.setAttribute("currentShop",s);
                 Shop currentShop = (Shop) request.getSession().getAttribute("currentShop");
                 Shop shop = new Shop();
                 shop.setShopId(currentShop.getShopId());
@@ -248,7 +252,6 @@ public class ProductManagementController {
         return modelMap;
 
     }
-
 
     @RequestMapping(value = "/getproductlistbyshop", method = RequestMethod.GET)
     @ResponseBody
@@ -278,7 +281,6 @@ public class ProductManagementController {
             modelMap.put("errMSg", "empty pageSize or pageIndex or shopId");
         }
         return modelMap;
-
     }
 
     /**
@@ -306,6 +308,4 @@ public class ProductManagementController {
         }
         return productCondition;
     }
-
-
 }

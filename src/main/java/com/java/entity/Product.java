@@ -9,7 +9,6 @@ public class Product {
     private String productName;
 
     private String productDesc;
-
     //简略图
     private String imgAddr;
 
@@ -26,13 +25,21 @@ public class Product {
     //-1：不可用 0：下架 1：在前端系统展示
     private Integer enableStatus;
 
-
-
     private List<ProductImg> productImgList;
 
     private ProductCategory productCategory;
 
+    private Long shopId;
+
     private Shop shop;
+
+    public Long getShopId() {
+        return shopId;
+    }
+
+    public void setShopId(Long shopId) {
+        this.shopId = shopId;
+    }
 
     public Long getProductId() {
         return productId;

@@ -12,6 +12,7 @@ import com.java.util.PageCaculator;
 import com.java.util.img.PathUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -82,6 +83,7 @@ public class ShopServiceImpl implements ShopService {
     }
 
     @Override
+    @Transactional
     public ShopExecution addShop(Shop shop, ImageHolder thumbnail) {
 
         //空值判断

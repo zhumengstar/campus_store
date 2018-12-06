@@ -43,12 +43,11 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
                 int effectedNum = productCategoryDao.batchInsertProductCategory(productCategoryList);
                 if (effectedNum <= 0) {
                     throw new ProductCategoryOperationException("店铺类别创建失败！");
-
                 } else {
                     return new ProductCategoryExecution(ProductCategoryStateEnum.SUCCESS);
                 }
             } catch (Exception e) {
-                throw new ProductCategoryOperationException("batchAddProductCategory error:" + e.getMessage());
+                throw new ProductCategoryOperationException("店铺类别创建失败！");
             }
         } else {
             return new ProductCategoryExecution(ProductCategoryStateEnum.EMPTY_LIST);
@@ -62,22 +61,23 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
         try {
             int effectedNum = productDao.updateProductCategoryToNull(productCategoryId);
             if (effectedNum < 0) {
-                throw new RuntimeException("商品类别更新失败");
+                throw new RuntimeException("商品类别与商品类别解除关联失败");
             }
         } catch (Exception e) {
-            throw new RuntimeException("deleteProductCategory error:" + e.getMessage());
+            throw new ProductCategoryOperationException("商品类别与商品类别解除关联失败:" + e.getMessage());
         }
+
         //删除该productCategory
         try {
             int effectNum = productCategoryDao.deleteProductCategory(productCategoryId, shopId);
             if (effectNum <= 0) {
-                throw new ProductCategoryOperationException("商品类呗删除失败");
+                throw new ProductCategoryOperationException("商品类别删除失败");
 
             } else {
                 return new ProductCategoryExecution(ProductCategoryStateEnum.SUCCESS);
             }
         } catch (Exception e) {
-            throw new ProductCategoryOperationException("deleteProductCategory error:" + e.getMessage());
+            throw new ProductCategoryOperationException("商品类别删除失败：" + e.getMessage());
         }
     }
 

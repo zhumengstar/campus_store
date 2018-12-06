@@ -1,6 +1,9 @@
-package com.java.interceptor;
+package com.java.interceptor.Login;
 
 import com.java.entity.PersonInfo;
+import com.java.interceptor.ProductInterceptor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +15,8 @@ import java.io.PrintWriter;
  * @desc:
  **/
 public class ShopLoginInterceptor extends HandlerInterceptorAdapter {
+    Logger logger = LoggerFactory.getLogger(ShopLoginInterceptor.class);
+
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handle) throws Exception {
@@ -26,6 +31,8 @@ public class ShopLoginInterceptor extends HandlerInterceptorAdapter {
             }
 
         }
+
+        logger.debug(request.getContextPath()+"/frontend/index");
         response.sendRedirect(request.getContextPath()+"/frontend/index");
         return false;
     }

@@ -58,13 +58,12 @@ public class LocalAuthServiceImpl implements LocalAuthService {
             localAuth.setPassword(MD5.getMd5(localAuth.getPassword()));
             int effectedNum = localAuthDao.insertLocalAuth(localAuth);
             if (effectedNum <= 0) {
-                throw new RuntimeException("账号绑定失败");
-
+                throw new LocalAuthOperationException("账号绑定失败");
             } else {
                 return new LocalAuthExecution(LocalAuthEnum.SUCCESS, localAuth);
             }
         } catch (Exception e) {
-            throw new RuntimeException("insertLocalAuth error:" + e.getMessage());
+            throw new RuntimeException(e.getMessage());
         }
     }
 

@@ -92,7 +92,7 @@ public class ShopManagementController {
             shopCondition.setOwner(user);
             ShopExecution se = shopService.getShopList(shopCondition, 0, 100);
 
-            request.getSession().setAttribute("shoplist",se.getShopList());
+            request.getSession().setAttribute("shoplist", se.getShopList());
 
             modelMap.put("shopList", se.getShopList());
             modelMap.put("user", user);
@@ -149,7 +149,6 @@ public class ShopManagementController {
             modelMap.put("errMsg", e.getMessage());
         }
         logger.info("yes");
-
         return modelMap;
     }
 
@@ -193,38 +192,13 @@ public class ShopManagementController {
         //2.注册店铺
         if (shop != null && shopImg != null) {
             PersonInfo owner = (PersonInfo) request.getSession().getAttribute("user");
-
-
-//            PersonInfo owner = new PersonInfo();
-//            //TODO
-//            owner.setUserId(1L);
             shop.setOwner(owner);
-
-            //文件操作
-
-//            File shopImgFile = new File(PathUtil.getImgBasePath() + ImageUtil.getRandomFileName());
-//            try {
-//                shopImgFile.createNewFile();
-//            } catch (IOException e) {
-//                modelMap.put("success", false);
-//                modelMap.put("errMsg", e.getMessage());
-//                return modelMap;
-//            }
-//            try {
-//                inputStreamToFile(shopImg.getInputStream(), shopImgFile);
-//            } catch (IOException e) {
-//                modelMap.put("success", false);
-//                modelMap.put("errMsg", e.getMessage());
-//                return modelMap;
-//            }
             ShopExecution se;
             try {
                 ImageHolder thumbnail = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
                 se = shopService.addShop(shop, thumbnail);
                 if (se.getState() == ShopStateEnum.CHECK.getState()) {
                     modelMap.put("success", true);
-
-
                     //用户可操作店铺列表
                     @SuppressWarnings("unchecked")
                     List<Shop> shopList = (List<Shop>) request.getSession().getAttribute("shopList");
@@ -233,8 +207,6 @@ public class ShopManagementController {
                     }
                     shopList.add(se.getShop());
                     request.getSession().setAttribute("shopList", shopList);
-
-
                 } else {
                     modelMap.put("success", false);
                     modelMap.put("errMsg", se.getStateInfo());
@@ -260,21 +232,15 @@ public class ShopManagementController {
     @ResponseBody
     private Map<String, Object> modifyShop(HttpServletRequest request) {
         Map<String, Object> modelMap = new HashMap<>();
-
-
         if (!CodeUtils.checkVerifyCode(request)) {
             modelMap.put("success", false);
             modelMap.put("errMsg", "输入了错误的验证码");
             return modelMap;
         }
-
-
         //1.接收并转换相应的参数,包括店铺信息及图片信息
         String shopStr = HttpServletRequestUtils.getString(request, "shopStr");
         ObjectMapper mapper = new ObjectMapper();
         Shop shop = null;
-
-
         try {
             //接收前端传来的店铺相关的字符串信息,将它转换成shop实体类
             shop = mapper.readValue(shopStr, Shop.class);
@@ -290,26 +256,12 @@ public class ShopManagementController {
             MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest) request;
             shopImg = (CommonsMultipartFile) multipartHttpServletRequest.getFile("shopImg");
         }
+
+//        PersonInfo owner = (PersonInfo) request.getSession().getAttribute("user");
+        //TODO
+
         //2.修改店铺信息
         if (shop != null && shop.getShopId() != null) {
-//            PersonInfo owner = (PersonInfo) request.getSession().getAttribute("user");
-
-
-//            File shopImgFile = new File(PathUtil.getImgBasePath() + ImageUtil.getRandomFileName());
-//            try {
-//                shopImgFile.createNewFile();
-//            } catch (IOException e) {
-//                modelMap.put("success", false);
-//                modelMap.put("errMsg", e.getMessage());
-//                return modelMap;
-//            }
-//            try {
-//                inputStreamToFile(shopImg.getInputStream(), shopImgFile);
-//            } catch (IOException e) {
-//                modelMap.put("success", false);
-//                modelMap.put("errMsg", e.getMessage());
-//                return modelMap;
-//            }
             ShopExecution se;
             try {
                 if (shopImg == null) {
@@ -318,16 +270,12 @@ public class ShopManagementController {
                     ImageHolder thumbnail = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
                     se = shopService.modifyShop(shop, thumbnail);
                 }
-
-
                 if (se.getState() == ShopStateEnum.SUCCESS.getState()) {
                     modelMap.put("success", true);
                 } else {
                     modelMap.put("success", false);
                     modelMap.put("errMsg", se.getStateInfo());
                 }
-
-
             } catch (ShopOperationExecetion e) {
                 modelMap.put("success", false);
                 modelMap.put("errMsg", e.getMessage());
@@ -343,31 +291,4 @@ public class ShopManagementController {
         }
         //3.返回结果
     }
-
-    /*
-    private static void inputStreamToFile(InputStream ins, File file) {
-        FileOutputStream os = null;
-
-        try {
-            os = new FileOutputStream(file);
-            int bytesRead = 0;
-            byte[] buffer = new byte[1024];
-            while ((bytesRead = ins.read(buffer)) != -1) {
-                os.write(buffer, 0, bytesRead);
-            }
-        } catch (Exception e) {
-            throw new RuntimeException("调用inputStreamToFile产生异常:" + e.getMessage());
-        } finally {
-            try {
-                if (os != null) {
-                    os.close();
-                }
-                if (ins != null) {
-                    ins.close();
-                }
-            } catch (IOException e) {
-                throw new RuntimeException("inputStreamToFile关闭io产生异常:" + e.getMessage());
-            }
-        }
-    }*/
 }

@@ -1,5 +1,6 @@
 package com.java.interceptor;
 
+import com.java.dao.ProductDao;
 import com.java.dao.ShopDao;
 import com.java.entity.PersonInfo;
 import com.java.entity.Product;
@@ -18,20 +19,39 @@ import java.util.List;
  * @author:zhumeng
  * @desc:
  **/
-public class All extends HandlerInterceptorAdapter {
+public class ProductInterceptor extends HandlerInterceptorAdapter {
 
-    Logger logger = LoggerFactory.getLogger(ShopPermissionInterceptor.class);
+    Logger logger = LoggerFactory.getLogger(ProductInterceptor.class);
+
+    @Autowired
+    private ProductDao productDao;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handle) throws Exception {
 
-        logger.debug(request.getContextPath());
-        logger.debug(request.getContextPath() + request.getRequestURL()+request.getParameter("shopId"));
-        logger.debug(request.getContextPath() + request.getSession());
-        logger.debug(request.getContextPath());
-        logger.debug(request.getContextPath());
-        logger.debug(request.getContextPath());
-        logger.debug(request.getContextPath());
+        Shop currentShop = (Shop) request.getSession().getAttribute("currentShop");
+
+        Long productId = null;
+        try {
+            productId = Long.valueOf(request.getParameter("productId"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (productId != null) {
+
+            Product product = new Product();
+            product.setShop(currentShop);
+            int count = productDao.queryProductCount(product);
+            List<Product> productList = productDao.queryProductList(product, 0, count);
+
+            for (Product p : productList) {
+                if (productId == p.getProductId()) {
+                    return true;
+                }
+            }
+        }else {
+            return true;
+        }
         response.sendRedirect(request.getContextPath() + "/frontend/index");
         return false;
     }

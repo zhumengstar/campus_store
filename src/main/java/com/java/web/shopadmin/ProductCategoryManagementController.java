@@ -29,10 +29,13 @@ public class ProductCategoryManagementController {
     @Autowired
     private ProductCategoryService productCategoryService;
 
+    //需要有当前店铺权限
     @RequestMapping(value = "/getproductcategorylist", method = RequestMethod.GET)
     @ResponseBody
     private Result<List<ProductCategory>> getProductCategoryList(HttpServletRequest request) {
+        //通过当前店铺获取商品类别列表
         Shop currentShop = (Shop) request.getSession().getAttribute("currentShop");
+
         List<ProductCategory> list = null;
         if (currentShop != null && currentShop.getShopId() > 0) {
             list = productCategoryService.getProductCategoryList(currentShop.getShopId());
@@ -43,14 +46,15 @@ public class ProductCategoryManagementController {
         }
     }
 
+    //当前店铺权限
     @ResponseBody
     @RequestMapping(value = "/addproductcategorys", method = RequestMethod.POST)
     public Map<String, Object> addProductCategorys(@RequestBody List<ProductCategory> productCategoryList, HttpServletRequest request) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
-        Shop current = (Shop) request.getSession().getAttribute("currentShop");
+        Shop currentShop = (Shop) request.getSession().getAttribute("currentShop");
 
         for (ProductCategory pc : productCategoryList) {
-            pc.setShopId(current.getShopId());
+            pc.setShopId(currentShop.getShopId());
         }
         if (productCategoryList != null && productCategoryList.size() > 0) {
             try {
@@ -61,7 +65,6 @@ public class ProductCategoryManagementController {
                     modelMap.put("success", false);
                     modelMap.put("errMsg", pe.getStateInfo());
                 }
-
             } catch (ProductCategoryOperationException e) {
                 modelMap.put("success", false);
                 modelMap.put("errMsg", e.toString());
@@ -70,7 +73,6 @@ public class ProductCategoryManagementController {
             modelMap.put("success", false);
             modelMap.put("errMsg", "请至少输入一个商品类别！");
         }
-
         return modelMap;
     }
 
@@ -85,7 +87,6 @@ public class ProductCategoryManagementController {
                 ProductCategoryExecution pe = productCategoryService.deleteProductCategory(productCategoryId, currentShop.getShopId());
                 if (pe.getState() == ProductCategoryStateEnum.SUCCESS.getState()) {
                     modelMap.put("success", true);
-
                 } else {
                     modelMap.put("success", false);
                     modelMap.put("errMsg", pe.getStateInfo());

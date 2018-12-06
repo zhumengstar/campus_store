@@ -47,6 +47,7 @@ public class LocalAuthController {
     @Autowired
     private LocalAuthService localAuthService;
 
+    //微信注册绑定本地账号
     @RequestMapping(value = "/bindlocalauth", method = GET)
     @ResponseBody
     public Map<String, Object> bindLocalAuth(HttpServletRequest request) {
@@ -99,7 +100,6 @@ public class LocalAuthController {
 
         String username = HttpServletRequestUtils.getString(request, "username");
         String password = HttpServletRequestUtils.getString(request, "password");
-
         String newpassword = HttpServletRequestUtils.getString(request, "newPassword");
 
         PersonInfo user = (PersonInfo) request.getSession().getAttribute("user");
@@ -109,7 +109,7 @@ public class LocalAuthController {
                 LocalAuth localAuth = localAuthService.getLocalAuth(user.getUserId());
                 if (localAuth == null || !localAuth.getUserName().equals(username)) {
                     modelMap.put("success", false);
-                    modelMap.put("errMsg", "输入的账号非本次登录的账号");
+                    modelMap.put("errMsg", "输入的账号非本次登录的账号或未登录");
                     return modelMap;
                 }
                 LocalAuthExecution le = localAuthService.modifyLocalAuth(user.getUserId(), username, password, newpassword, new Date());
@@ -133,7 +133,7 @@ public class LocalAuthController {
         return modelMap;
     }
 
-
+    //登录验证
     @ResponseBody
     @RequestMapping(value = "/logincheck", method = POST)
     public Map<String, Object> logincheck(HttpServletRequest request) {
@@ -148,13 +148,16 @@ public class LocalAuthController {
         }
 
         String username = HttpServletRequestUtils.getString(request, "username");
-
         String password = HttpServletRequestUtils.getString(request, "password");
 
         if (username != null && password != null) {
             LocalAuth localAuth = localAuthService.getLocalAuthByUserNameAndPwd(username, password);
             if (localAuth != null) {
                 modelMap.put("success", true);
+                //登录成功设置session
+                /**
+                 * setSession
+                 */
                 request.getSession().setAttribute("user", localAuth.getPersonInfo());
             } else {
                 modelMap.put("success", false);
@@ -169,6 +172,12 @@ public class LocalAuthController {
     }
 
 
+    /**
+     * 注册账号
+     *
+     * @param request
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/registeraccount", method = POST)
     public Map<String, Object> register(HttpServletRequest request) {
@@ -221,6 +230,9 @@ public class LocalAuthController {
                 LocalAuthExecution le = localAuthService.register(localAuth, thumbnail);
                 if (le.getState() == LocalAuthEnum.SUCCESS.getState()) {
                     //注册成功设置session
+                    /**
+                     * setSession
+                     */
                     request.getSession().setAttribute("user", le.getLocalAuth().getPersonInfo());
                     modelMap.put("success", true);
                 } else {
@@ -241,10 +253,19 @@ public class LocalAuthController {
         return modelMap;
     }
 
+    /**
+     * 登出
+     *
+     * @param request
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/logout", method = POST)
     public Map<String, Object> logout(HttpServletRequest request) {
         Map<String, Object> modelMap = new HashMap<>();
+        /**
+         * setSession
+         */
         request.getSession().setAttribute("user", null);
         modelMap.put("success", true);
         return modelMap;

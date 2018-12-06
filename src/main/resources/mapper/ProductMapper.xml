@@ -15,6 +15,7 @@
         <result column="create_time" property="createTime"/>
         <result column="last_edit_time" property="lastEditTime"/>
         <result column="enable_status" property="enableStatus"/>
+        <result column="shop_id" property="shopId"/>
         <association property="productCategory" column="product_category_id" javaType="com.java.entity.ProductCategory">
             <id column="product_category_id" property="productCategoryId"/>
             <result column="product_category_name" property="productCategoryName"/>

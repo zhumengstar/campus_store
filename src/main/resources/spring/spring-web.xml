@@ -47,24 +47,48 @@
         <!-- 校验是否已登录了店家管理系统的拦截器 -->
         <mvc:interceptor>
             <mvc:mapping path="/shopadmin/**"/>
-            <bean id="ShopInterceptor" class="com.java.interceptor.ShopLoginInterceptor"/>
+            <bean id="ShopInterceptor" class="com.java.interceptor.Login.ShopLoginInterceptor"/>
         </mvc:interceptor>
+
+
         <!-- 校验是否对该店铺有操作权限的拦截器 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/shopadmin/**"/>
+            <!--店铺-->
+            <mvc:exclude-mapping path="/shopadmin/shoplist"/>
+            <mvc:exclude-mapping path="/shopadmin/shopoperation"/>
+            <mvc:exclude-mapping path="/shopadmin/shopmanagement"/>
+
+
+            <mvc:exclude-mapping path="/shopadmin/getshoplist"/>
+            <mvc:exclude-mapping path="/shopadmin/getshopinitinfo"/>
+            <mvc:exclude-mapping path="/shopadmin/registershop"/>
+            <mvc:exclude-mapping path="/shopadmin/getshopmanagementinfo"/>
+            <bean id="ShopPermissionInterceptor" class="com.java.interceptor.ShopPermissionInterceptor"/>
+        </mvc:interceptor>
 
 
         <mvc:interceptor>
             <mvc:mapping path="/shopadmin/**"/>
-            <!-- shoplist page -->
-            <mvc:exclude-mapping path="/shopadmin/shoplist"/>
-            <mvc:exclude-mapping path="/shopadmin/getshoplist"/>
-            <!-- shopregister page -->
-            <mvc:exclude-mapping path="/shopadmin/getshopinitinfo"/>
-            <mvc:exclude-mapping path="/shopadmin/registershop"/>
-            <mvc:exclude-mapping path="/shopadmin/shopoperation"/>
-            <!-- shopmanage page -->
-            <mvc:exclude-mapping path="/shopadmin/shopmanagement"/>
-            <mvc:exclude-mapping path="/shopadmin/getshopmanagementinfo"/>
-            <bean id="ShopPermissionInterceptor" class="com.java.interceptor.ShopPermissionInterceptor"/>
+
+            <!--商品-->
+            <mvc:exclude-mapping path="/shopadmin/productcategorymanagement"/>
+            <mvc:exclude-mapping path="/shopadmin/productmanagement"/>
+            <mvc:exclude-mapping path="/shopadmin/productoperation"/>
+
+
+
+            <mvc:exclude-mapping path="/shopadmin/getproductcategorylist"/>
+            <mvc:exclude-mapping path="/shopadmin/addproductcategory"/>
+            <mvc:exclude-mapping path="/shopadmin/removeproductcategory"/>
+            <mvc:exclude-mapping path="/shopadmin/addproduct"/>
+            <mvc:exclude-mapping path="/shopadmin/getproductbyid"/>
+            <mvc:exclude-mapping path="/shopadmin/modifyproduct"/>
+            <mvc:exclude-mapping path="/shopadmin/getproductlistbyshop"/>
+            <bean id="ProductInterceptor" class="com.java.interceptor.ProductInterceptor"/>
         </mvc:interceptor>
+        <!-- 校验是否对该店铺有操作权限的拦截器 -->
+
+
     </mvc:interceptors>
 </beans>
