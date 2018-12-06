@@ -21,19 +21,12 @@ public class ShopLoginInterceptor extends HandlerInterceptorAdapter {
             //若用户信息不为空则将用户信息转换为PersonInfo实体类对象
             PersonInfo user = (PersonInfo) userObj;
 
-            if (user != null && user.getUserId() != null && user.getUserId() > 0 && user.getEnableStatus() == 1) {
-                //若通过验证则返回true，拦截器返回true之后，用户接下来得以正常操作
+            if (user != null && user.getUserId() != null && user.getUserId() > 0 && user.getEnableStatus() == 1) {//若通过验证则返回true，拦截器返回true之后，用户接下来得以正常操作
                 return true;
             }
 
         }
-        //若不满足则调到登录界面
-        PrintWriter out = response.getWriter();
-        out.println("<html>");
-        out.println("<script>");
-        out.println("window.open('" + request.getContextPath() + "/local/login','_self')");
-        out.println("</script>");
-        out.println("</html>");
+        response.sendRedirect(request.getContextPath()+"/frontend/index");
         return false;
     }
 }
