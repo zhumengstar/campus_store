@@ -1,9 +1,8 @@
-package com.java.web.shopadmin;
+package com.java.web.shopadmin.product;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.java.dto.other.ImageHolder;
 import com.java.dto.ProductExecution;
-import com.java.entity.PersonInfo;
 import com.java.entity.Product;
 import com.java.entity.ProductCategory;
 import com.java.entity.Shop;

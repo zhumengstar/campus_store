@@ -47,7 +47,7 @@ public class LocalAuthController {
     @Autowired
     private LocalAuthService localAuthService;
 
-    //微信注册绑定本地账号
+    //微信的账号,注册绑定本地账号
     @RequestMapping(value = "/bindlocalauth", method = GET)
     @ResponseBody
     public Map<String, Object> bindLocalAuth(HttpServletRequest request) {
@@ -61,11 +61,9 @@ public class LocalAuthController {
         }
         String username = HttpServletRequestUtils.getString(request, "username");
         String password = HttpServletRequestUtils.getString(request, "password");
-
         PersonInfo user = (PersonInfo) request.getSession().getAttribute("user");
 
         //判断当前用户是否有账号
-
         if (username != null && password != null && user != null) {
             LocalAuth localAuth = new LocalAuth();
             //设置新用户名，密码
@@ -266,7 +264,7 @@ public class LocalAuthController {
         /**
          * setSession
          */
-        request.getSession().setAttribute("user", null);
+        request.getSession().invalidate();
         modelMap.put("success", true);
         return modelMap;
     }

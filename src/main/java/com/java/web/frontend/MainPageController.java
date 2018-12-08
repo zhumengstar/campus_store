@@ -28,9 +28,14 @@ public class MainPageController {
     @Autowired
     private HeadLineService headLineService;
 
+    /**
+     * 初始化前端展示系统的主页信息,包括获取一级店铺类别列表以及头条列表
+     *
+     * @return
+     */
     @RequestMapping(value = "/listmainpageinfo", method = RequestMethod.GET)
     @ResponseBody
-    private Map<String, Object> list1stshopCategory() {
+    private Map<String, Object> listMainPageInfo() {
         Map<String, Object> modelMap = new HashMap<String, Object>();
 
         List<ShopCategory> shopCategoryList = new ArrayList<ShopCategory>();
@@ -44,9 +49,7 @@ public class MainPageController {
             modelMap.put("errMsg", e.getMessage());
             return modelMap;
         }
-
         List<HeadLine> headLineList = new ArrayList<HeadLine>();
-
         try {
             //获取状态为1的头条列表
             HeadLine headLineCondition = new HeadLine();

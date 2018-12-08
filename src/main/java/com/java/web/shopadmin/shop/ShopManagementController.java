@@ -1,4 +1,4 @@
-package com.java.web.shopadmin;
+package com.java.web.shopadmin.shop;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.java.dto.other.ImageHolder;
@@ -57,6 +57,11 @@ public class ShopManagementController {
     private PersonInfoService personInfoService;
 
 
+    /**
+     * 进入店铺管理页面，若未无当前店铺则重定向到店铺列表页
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/getshopmanagementinfo", method = RequestMethod.GET)
     @ResponseBody
     private Map<String, Object> getShopManagementInfo(HttpServletRequest request) {
@@ -81,6 +86,11 @@ public class ShopManagementController {
         return modelMap;
     }
 
+    /**
+     * 获取用户的店铺列表
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/getshoplist", method = RequestMethod.GET)
     @ResponseBody
     private Map<String, Object> getShopList(HttpServletRequest request) {
@@ -224,7 +234,6 @@ public class ShopManagementController {
             modelMap.put("errMsg", "请输入店铺信息");
             return modelMap;
         }
-        //3.返回结果
     }
 
 
@@ -237,9 +246,11 @@ public class ShopManagementController {
             modelMap.put("errMsg", "输入了错误的验证码");
             return modelMap;
         }
+
         //1.接收并转换相应的参数,包括店铺信息及图片信息
         String shopStr = HttpServletRequestUtils.getString(request, "shopStr");
         ObjectMapper mapper = new ObjectMapper();
+        //店铺信息
         Shop shop = null;
         try {
             //接收前端传来的店铺相关的字符串信息,将它转换成shop实体类
@@ -249,6 +260,8 @@ public class ShopManagementController {
             modelMap.put("errMsg", e.getMessage());
             return modelMap;
         }
+
+
         //获取前端传来的文件流,将其接收到shopImg
         CommonsMultipartFile shopImg = null;
         CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
@@ -289,6 +302,5 @@ public class ShopManagementController {
             modelMap.put("errMsg", "请输入店铺Id");
             return modelMap;
         }
-        //3.返回结果
     }
 }

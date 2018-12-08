@@ -73,10 +73,10 @@ $(function() {
                 var total = $('.list-div .card').length;
                 if (total >= maxItems) {
                     // 加载完毕，则注销无限加载事件，以防不必要的加载
-                    //$.detachInfiniteScroll($('.infinite-scroll'));
+                    // $.detachInfiniteScroll($('.infinite-scroll'));
                     // 删除加载提示符
-                    //$('.infinite-scroll-preloader').remove();
-                    //隐藏提示符
+                    // $('.infinite-scroll-preloader').remove();
+                    // 隐藏提示符
                     $('.infinite-scroll-preloader').hide();
                 } else {
                     $('.infinite-scroll-preloader').show();

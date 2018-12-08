@@ -2,7 +2,6 @@ package com.java.web.superadmin;
 
 import com.java.entity.Area;
 import com.java.service.AreaService;
-import com.java.web.shopadmin.ShopManagementController;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

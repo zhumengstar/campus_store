@@ -39,26 +39,30 @@ public class ProductDetailController {
     private static String URLPREFIX = "https://open.weixin.qq.com/connect/oauth2/authorize?"
             + "appid=wxd7f6c5b8899fba83&"
             + "redirect_uri=115.28.159.6/myo2o/shop/adduserproductmap&"
-            + "response_type=code&scope=snsapi_userinfo&state=";
+            + "response_type=code&"
+            + "scope=snsapi_userinfo&"
+            + "state=";
     private static String URLSUFFIX = "#wechat_redirect";
 
+    /**
+     *列出商品详情页信息，包括商品及详情图
+     * @param request
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/listproductdetailpageinfo", method = RequestMethod.GET)
     private Map<String, Object> listProductDetailPageInfo(HttpServletRequest request) {
         Map<String, Object> modelMap = new HashMap<>();
-
         Long productId = HttpServletRequestUtils.getLong(request, "productId");
-
         Product product = null;
-
         if (productId != -1) {
             product = productService.getProductById(productId);
-            List<ProductImg> productImgList=productImgService.getProductImgListByProductId(productId);
+            List<ProductImg> productImgList = productImgService.getProductImgListByProductId(productId);
+            //产品的图片列表
             product.setProductImgList(productImgList);
-            modelMap.put("product", product);
-//            modelMap.put("imgAddr",productImgList);
-            modelMap.put("success", true);
 
+            modelMap.put("product", product);
+            modelMap.put("success", true);
         } else {
             modelMap.put("success", false);
             modelMap.put("errMsg", "empty productId");
@@ -66,24 +70,30 @@ public class ProductDetailController {
         return modelMap;
     }
 
+    /**
+     * 通过微信,商品信息，用户信息生成二维码 传入产品Id
+     * @param request
+     * @param response
+     */
     @RequestMapping(value = "/generateqrcode4product", method = RequestMethod.GET)
     @ResponseBody
-    private void generateQRCode4Product(HttpServletRequest request,
-                                        HttpServletResponse response) {
+    private void generateQRCode4Product(HttpServletRequest request, HttpServletResponse response) {
         long productId = HttpServletRequestUtils.getLong(request, "productId");
-        PersonInfo user = (PersonInfo) request.getSession()
-                .getAttribute("user");
+        PersonInfo user = (PersonInfo) request.getSession().getAttribute("user");
         if (productId != -1 && user != null && user.getUserId() != null) {
-            long timpStamp = System.currentTimeMillis();
-            String content = "{\"productId\":" + productId + ",\"customerId\":"
-                    + user.getUserId() + ",\"createTime\":" + timpStamp + "}";
+            //当前时间
+            long timStamp = System.currentTimeMillis();
+            //内容
+            String content = "{\"productId\":" + productId + ",\"customerId\":" + user.getUserId() + ",\"createTime\":" + timStamp + "}";
+            //长链接
             String longUrl = URLPREFIX + content + URLSUFFIX;
+            //百度短链接
             String shortUrl = ShortNetAddress.getShortURL(longUrl);
-            BitMatrix qRcodeImg = QRCodeUtil.generateQRCodeStream(shortUrl,
-                    response);
+            //矩阵二维码
+            BitMatrix qRcodeImg = QRCodeUtil.generateQRCodeStream(shortUrl, response);
             try {
-                MatrixToImageWriter.writeToStream(qRcodeImg, "png",
-                        response.getOutputStream());
+                //输出
+                MatrixToImageWriter.writeToStream(qRcodeImg, "png", response.getOutputStream());
             } catch (IOException e) {
                 e.printStackTrace();
             }

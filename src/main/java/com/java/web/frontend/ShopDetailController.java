@@ -36,6 +36,13 @@ public class ShopDetailController {
     @Autowired
     private ProductCategoryService productCategoryService;
 
+
+    /**
+     * 店铺详情页，及店铺商品类别,传入店铺Id
+     *
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/listshopdetailpageinfo", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, Object> listShopDetailPageInfo(HttpServletRequest request) {
@@ -65,29 +72,37 @@ public class ShopDetailController {
 
     }
 
+
+    /**
+     * 列出该店铺产品
+     *
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/listproductsbyshop", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, Object> listProductsByShop(HttpServletRequest request) {
         Map<String, Object> modelMap = new HashMap<String, Object>();
-
+        //获取页码
         int pageIndex = HttpServletRequestUtils.getInt(request, "pageIndex");
-
+        //获取一页需要显示的条数
         int pageSize = HttpServletRequestUtils.getInt(request, "pageSize");
-
+        //获取店铺Id
         Long shopId = HttpServletRequestUtils.getLong(request, "shopId");
-
+        //空值判断
         if (pageIndex > -1 && pageSize > -1 && shopId > -1) {
+            //尝试获取商品类别Id
             Long productCategoryId = HttpServletRequestUtils.getLong(request, "productCategoryId");
-
+            //尝试获取模糊查找的商品名
             String productName = HttpServletRequestUtils.getString(request, "productName");
-
+            //组合查询条件
             Product productCondition = compactProductCondition4Search(shopId, productCategoryId, productName);
-
+            //按照传入的查询条件以及分页信息返回相应商品列表以及总数
             ProductExecution pe = productService.getProductList(productCondition, pageIndex, pageSize);
-
+            //返回查询结果
+            modelMap.put("success", true);
             modelMap.put("productList", pe.getProductList());
             modelMap.put("count", pe.getCount());
-            modelMap.put("success", toString());
 
         } else {
             modelMap.put("success", false);
@@ -96,6 +111,7 @@ public class ShopDetailController {
         return modelMap;
     }
 
+    //组合产品查询条件
     private Product compactProductCondition4Search(Long shopId, Long productCategoryId, String productName) {
         Product productCondition = new Product();
         Shop shop = new Shop();
@@ -106,6 +122,7 @@ public class ShopDetailController {
             productCategory.setProductCategoryId(productCategoryId);
             productCondition.setProductCategory(productCategory);
         }
+
         if (productName != null) {
             productCondition.setProductName(productName);
         }

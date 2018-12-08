@@ -1,8 +1,6 @@
 package com.java.interceptor;
 
 import com.java.dao.ProductDao;
-import com.java.dao.ShopDao;
-import com.java.entity.PersonInfo;
 import com.java.entity.Product;
 import com.java.entity.Shop;
 import org.slf4j.Logger;
@@ -12,7 +10,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -31,12 +28,10 @@ public class ProductInterceptor extends HandlerInterceptorAdapter {
 
         Shop currentShop = (Shop) request.getSession().getAttribute("currentShop");
 
-        Long productId = null;
-        try {
-            productId = Long.valueOf(request.getParameter("productId"));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String productId = null;
+
+        productId = request.getParameter("productId");
+
         if (productId != null) {
 
             Product product = new Product();
@@ -45,14 +40,14 @@ public class ProductInterceptor extends HandlerInterceptorAdapter {
             List<Product> productList = productDao.queryProductList(product, 0, count);
 
             for (Product p : productList) {
-                if (productId == p.getProductId()) {
+                if (productId.equals(p.getProductId().toString())) {
                     return true;
                 }
             }
-        }else {
+        } else {
             return true;
         }
-        response.sendRedirect(request.getContextPath() + "/frontend/index");
+        response.sendRedirect(request.getContextPath() + "/shopadmin/productmanagement");
         return false;
     }
 }

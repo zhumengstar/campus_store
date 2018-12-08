@@ -15,13 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class ShopAdminController {
 
 
-
-    @RequestMapping(value = "/shopoperation")
-    public String shopOperation() {
-        //转发至店铺注册或者编辑界面
-        return "shop/shopoperation";
-    }
-
+    //页面转发url
     @RequestMapping(value = "/shoplist")
     public String shopList() {
         //转发到店铺列表界面
@@ -44,6 +38,12 @@ public class ShopAdminController {
     public String productManagement() {
         //商品管理
         return "shop/productmanagement";
+    }
+
+    @RequestMapping(value = "/shopoperation")
+    public String shopOperation() {
+        //转发至店铺注册或者编辑界面
+        return "shop/shopoperation";
     }
 
     @RequestMapping(value = "/productoperation")

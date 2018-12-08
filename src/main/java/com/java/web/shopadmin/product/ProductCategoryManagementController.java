@@ -1,4 +1,4 @@
-package com.java.web.shopadmin;
+package com.java.web.shopadmin.product;
 
 import com.java.dto.ProductCategoryExecution;
 import com.java.dto.other.Result;
