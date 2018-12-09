@@ -34,9 +34,9 @@ public class ShopInterceptor extends HandlerInterceptorAdapter {
         tempShop.setOwner(user);
         int count = shopDao.queryShopCount(tempShop);
         List<Shop> shopList = shopDao.queryShopList(tempShop, 0, count);
-        if(shopList.size()<=0){
-            response.sendRedirect(request.getContextPath() + "/shopadmin/shoplist");
-            return false;
+        if (shopId==null&&shopList.size() == 0) {
+//            response.sendRedirect(request.getContextPath() + "/shopadmin/shopoperation");
+            return true;
         }
 
         if (shopId != null) {
@@ -48,6 +48,7 @@ public class ShopInterceptor extends HandlerInterceptorAdapter {
             response.sendRedirect(request.getContextPath() + "/shopadmin/shoplist");
             return false;
         } else {
+
             return true;
         }
     }

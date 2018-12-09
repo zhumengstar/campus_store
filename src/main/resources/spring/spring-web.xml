@@ -67,6 +67,7 @@
 
             <!--进入店铺管理-->
             <mvc:exclude-mapping path="/shopadmin/shopmanagement"/>
+            <mvc:exclude-mapping path="/shopadmin/shopoperation"/>
             <mvc:exclude-mapping path="/shopadmin/getshopmanagementinfo"/>
             <mvc:exclude-mapping path="/shopadmin/registershop"/>
             <!--商店信息-->

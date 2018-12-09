@@ -6,6 +6,10 @@ $(function () {
         var password = $('#password').val();
         var newPassword = $('#newPassword').val();
         var confirmPassword = $('#confirmPassword').val();
+        if(password==newPassword){
+            $.toast('原密码与新密码相同!');
+            return;
+        }
         if (newPassword != confirmPassword) {
             $.toast('两次输入的新密码不一致!');
             return;

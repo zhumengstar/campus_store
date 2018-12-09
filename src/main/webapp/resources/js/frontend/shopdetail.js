@@ -2,15 +2,14 @@ $(function() {
     var loading = false;
     var maxItems = 20;
     var pageSize = 5;
+    var pageNum = 1;
 
+    var shopId = getQueryString('shopId');
+    var searchDivUrl = '/frontend/listshopdetailpageinfo?shopId=' + shopId;
     var listUrl = '/frontend/listproductsbyshop';
 
-    var pageNum = 1;
-    var shopId = getQueryString('shopId');
     var productCategoryId = '';
     var productName = '';
-
-    var searchDivUrl = '/frontend/listshopdetailpageinfo?shopId=' + shopId;
 
     getSearchDivData();
     addItems(pageSize, pageNum);
@@ -20,6 +19,7 @@ $(function() {
         $.getJSON(url, function(data) {
             if (data.success) {
                 var shop = data.shop;
+                console.log(shop);
                 $('#shop-cover-pic').attr('src', shop.shopImg);
                 $('#shop-update-time').html(new Date(shop.lastEditTime).Format("yyyy-MM-dd"));
                 $('#shop-name').html(shop.shopName);
@@ -73,10 +73,10 @@ $(function() {
                 var total = $('.list-div .card').length;
                 if (total >= maxItems) {
                     // 加载完毕，则注销无限加载事件，以防不必要的加载
-                    // $.detachInfiniteScroll($('.infinite-scroll'));
+                    //$.detachInfiniteScroll($('.infinite-scroll'));
                     // 删除加载提示符
-                    // $('.infinite-scroll-preloader').remove();
-                    // 隐藏提示符
+                    //$('.infinite-scroll-preloader').remove();
+                    //隐藏提示符
                     $('.infinite-scroll-preloader').hide();
                 } else {
                     $('.infinite-scroll-preloader').show();
